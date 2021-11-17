@@ -1,0 +1,52 @@
+const mongoose = require("mongoose");
+
+const UserScheme = new mongoose.Schema(
+    {
+        nombre_usuario: {
+            type: String
+        },
+
+	nombre: {
+		type: String
+	},
+
+        cuenta_twitter: {
+            type: String
+        },  
+
+	descripcion: {
+		type: String
+	},
+
+	telefono1: {
+		type: String
+	},
+
+   	telefono2: {
+		type: String
+
+	},
+
+	calle: {
+		type: String
+	},
+	
+	numero: {
+		type:
+
+	},
+
+	cp: {
+		type:
+
+	},
+
+	ciudad: {
+		type: String
+	
+	},
+
+    }
+)
+
+module.exports = mongoose.model("user", UserScheme)
