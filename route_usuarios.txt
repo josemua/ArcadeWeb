@@ -1,0 +1,17 @@
+const express = require('express')
+const controller = require('../controllers/users')
+const router = express.Router()
+//const path = 'user'
+
+router.get(
+    '/users',
+    controller.getData
+)
+
+
+// router.get('/', (req, res) => {
+//     res.send({data: 'Hola mundo'})
+// })
+
+
+module.exports = router
