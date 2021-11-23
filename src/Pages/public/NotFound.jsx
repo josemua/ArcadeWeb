@@ -7,7 +7,7 @@ export function NotFound() {
                 Ruta no encontrada 404.
             </h2>
             <p>
-                Intenta logearte
+                Intenta logearte o verifica la ruta de enlace
             </p>
         </div>
     )
