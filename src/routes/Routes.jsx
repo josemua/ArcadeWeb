@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //public
-import { Home } from "../pages/public/Home";
+import Home from "../pages/public/Home";
 import { NotFound } from "../pages/public/NotFound";
 import ProjectList from "../pages/public/ProjectList";
 //private
 import UserList from "../pages/admin/UserList";
+import EditarUsuario from "../pages/admin/EditarUsuario";
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";
@@ -14,30 +15,17 @@ import PublicLayout from "../layouts/PublicLayout";
 const Rutas = () => {
   return (
     <Router>
-      <Switch>
-        <Route path={["/usuarios"]}>
-          <PrivateLayout>
-            <Switch>
-              <Route path="/usuarios">
-                <UserList />
-              </Route>
-            </Switch>
-          </PrivateLayout>
+      <Routes>
+        <Route path="/admin" element={<PrivateLayout />}>
         </Route>
-        <Route path={["/", "/proyectos"]}>
-          <PublicLayout>
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/proyectos">
-                <ProjectList />
-              </Route>
-              <Route component={NotFound} />
-            </Switch>
-          </PublicLayout>
+        <Route path="/" element={<PublicLayout />}>
+          <Route path="" element={<Home />} />
+          <Route path="usuarios" element={<UserList />} />
+          <Route path="usuarios/editar/:_id" element={< EditarUsuario/>} />
+          <Route path="proyectos" element={<ProjectList />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-      </Switch>
+      </Routes>
     </Router>
   );
 };

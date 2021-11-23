@@ -1,16 +1,3 @@
-body{
-  background-image: url(./componentes/img/Back1.jpg);
-  background-size: cover;
-  color: rgb(8, 8, 7);
-  font-family: 'Gemunu Libre', sans-serif;
-  padding: 0  2.5em;
-
-}
-
-.App {
-  text-align: center;
-}
-
 .Logo {
   height: 48px;
   width: 48px;
@@ -19,4 +6,61 @@ body{
 .titulo{
   text-align: center;
   font-size: 2.5em;
+}
+
+.tabla {
+  width: 98%;
+  margin: 10px;
+  overflow-y: scroll;
+}
+
+.tabla td{
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.tabla th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.tabla th {
+  background-color: #125487f1;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabla tr:hover {
+  background-color: #ddd;
+}
+
+.imgLink{
+  cursor: pointer,
+}
+
+.contenedor{
+  margin-left: 30vw;
+  width: 45%;
+  height: 65%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 10px 10px 8px black, 0 10px 20px 10px rgba(0, 0, 0, 0.4);
+}
+
+.link{
+  text-decoration: none;
+  color: blue;
+  text-align: left;
+  font-size: larger;
+}
+
+.centrado{
+  text-align: center;
+  align-items: center;
 }

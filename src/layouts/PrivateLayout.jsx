@@ -1,24 +1,21 @@
 import React from "react";
-import { useAuth0  } from "@auth0/auth0-react";
 import Navbar from "../componentes/Navbars";
-import PrivateRoutes from "../componentes/PrivateRoutes";
-import Loading from "../componentes/Loading";
+import { Outlet } from "react-router-dom";
 
-const PrivateLayout = ({ children }) => {
-  const { isLoading } = useAuth0();
+const PrivateLayout = () => {
 
-  if (isLoading) {
-    return <Loading />;
-  }
 
+//  return isAuthenticated ? (
   return (
-    <div className="">
-      <PrivateRoutes>
-        <Navbar />
-        Este es el private Layout
-        <div className="flex w-full">{children}</div>
-      </PrivateRoutes>
+    <div>
+      <Navbar />
+      Este es el private Layout
+      <Outlet />
     </div>
+  // ) : (
+  //   <div>
+  //     <h1>No estas autorizado para hacer eso ¯\_(ツ)_/¯ </h1>
+  //   </div>
   );
 };
 
