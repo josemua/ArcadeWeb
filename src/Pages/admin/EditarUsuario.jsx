@@ -5,7 +5,7 @@ import { GET_USUARIO } from "../../graphql/usuarios/queries";
 import { toast } from "react-toastify";
 import { EDITAR_USUARIO } from "../../graphql/usuarios/mutations";
 import { Col, Form, Row } from "react-bootstrap";
-import Loading from "../../componentes/Loading";
+import Loading from "../../Componentes/Loading";
 import useFormData from "../../hooks/useFormData";
 
 const EditarUsuario = () => {

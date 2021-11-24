@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //public
-import Home from "../pages/public/Home";
-import { NotFound } from "../pages/public/NotFound";
-import ProjectList from "../pages/public/ProjectList";
+import Home from "../Pages/public/Home";
+import { NotFound } from "../Pages/public/NotFound";
+import ProjectList from "../Pages/public/ProjectList";
 //private
-import UserList from "../pages/admin/UserList";
-import EditarUsuario from "../pages/admin/EditarUsuario";
+import UserList from "../Pages/admin/UserList";
+import EditarUsuario from "../Pages/admin/EditarUsuario";
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";
