@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_USUARIOS } from "../../graphql/usuarios/queries";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-import Loading from "../../componentes/Loading";
+import Loading from "../../Componentes/Loading";
 
 const UserList = () => {
   const { data, error, loading } = useQuery(GET_USUARIOS);

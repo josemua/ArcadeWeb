@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../componentes/Navbars";
+import Navbar from "../Componentes/Navbars";
 import { Outlet } from "react-router-dom";
 
 const PrivateLayout = () => {
