@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-
+//import logoInicio from "logo2.png"
 
 const Navbars = () => {
 
@@ -9,12 +9,18 @@ const Navbars = () => {
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
-          <img className="Logo" src="https://i.ibb.co/V98ydJq/logo.png" alt="logo" />
+          <img className="Logo" src="" alt="logo" />
         </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="/">Inicio</Nav.Link>
-          <Nav.Link href="/proyectos">Proyectos</Nav.Link>
-          <Nav.Link href="/usuarios">Usuarios</Nav.Link>
+        <Nav className="me-auto iconNavbar">
+          <Nav.Link href="/">
+            <i class='bx bxs-home'></i>
+            Inicio</Nav.Link>
+          <Nav.Link href="/proyectos" className="iconNavbar">
+            <i class='bx bx-folder-open'></i>
+            Proyectos</Nav.Link>
+          <Nav.Link href="/usuarios" className="me-auto iconNavbar">
+          <i class='bx bxs-user-rectangle'></i>
+            Usuarios</Nav.Link>
         </Nav>
         {/* {isAuthenticated ? (
           <NavDropdown title={name} id="navbarScrollingDropdown">

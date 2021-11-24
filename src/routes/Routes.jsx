@@ -18,7 +18,7 @@ const Rutas = () => {
       <Routes>
         <Route path="/admin" element={<PrivateLayout />}>
         </Route>
-        <Route path="/" element={<PublicLayout />}>
+          <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Home />} />
           <Route path="usuarios" element={<UserList />} />
           <Route path="usuarios/editar/:_id" element={< EditarUsuario/>} />

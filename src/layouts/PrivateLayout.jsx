@@ -7,11 +7,13 @@ const PrivateLayout = () => {
 
 //  return isAuthenticated ? (
   return (
-    <div>
+    <>
       <Navbar />
-      Este es el private Layout
+      <div className="fondo">
+        Este es el private Layout
       <Outlet />
-    </div>
+      </div>
+    </>
   // ) : (
   //   <div>
   //     <h1>No estas autorizado para hacer eso ¯\_(ツ)_/¯ </h1>

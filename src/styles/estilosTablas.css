@@ -1,0 +1,55 @@
+.contentTabla{
+    font-family: Montserrat, sans-serif;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.tabla {
+    width: 98%;
+    margin: 10px;
+    overflow-y: scroll;
+}
+
+.tabla td{
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+.tabla th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.tabla th {
+    background-color: #166088;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+    transition: all 0.5s ease;
+}
+
+.tabla tr:hover {
+    background-color: #ddd;
+    transition: all 0.5s ease;
+}
+
+.iconoTabla{
+    font-size: 30px;
+    color: #166088cf;
+    transition: all 0.5s ease;
+  }
+  
+.iconoTabla:hover{
+    font-size: 30px;
+    color: #1d3557;
+    transition: all 0.5s ease;
+}

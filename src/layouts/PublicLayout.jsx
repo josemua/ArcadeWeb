@@ -4,10 +4,11 @@ import { Outlet } from "react-router-dom";
 
 const PublicLayout = () => {
   return (
-    <div>
+    <div className="fondo">
       <Navbar/>
-      Este es el public Layout
+      <div className="contentPage">
       <Outlet/>
+      </div> 
     </div>
   );
 };
