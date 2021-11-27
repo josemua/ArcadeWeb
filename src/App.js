@@ -1,6 +1,8 @@
 import Routes from "./routes/Routes";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "styles/estilosTablas.css"
+import "styles/estilosForms.css"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { UserContext } from "./context/user";
 import { useState } from "react";

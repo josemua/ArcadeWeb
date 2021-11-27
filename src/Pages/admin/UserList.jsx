@@ -22,7 +22,7 @@ const UserList = () => {
 
 
   return (
-    <div>
+    <div className="contentTabla">
       <h2 className="titulo">Datos Usuarios:</h2>
       <table className="tabla">
         <thead>
@@ -47,14 +47,10 @@ const UserList = () => {
                   <td>{u.identificacion}</td>
                   <td>{u.rol}</td>
                   <td>{u.estado}</td>
-                  <td>
-                    <Link to={`/usuarios/editar/${u._id}`}>
-                      <img
-                        className="imgLink"
-                        src="https://i.ibb.co/58GbMrC/Actions-document-edit-icon.png"
-                        alt="Edit-icon"
-                      />
-                    </Link>
+                  <td className="centrado">
+                  <Link to={`/usuarios/editar/${u._id}`}>
+                    <i className='bx bxs-edit iconoTabla'></i>
+                  </Link>
                   </td>
                 </tr>
               );

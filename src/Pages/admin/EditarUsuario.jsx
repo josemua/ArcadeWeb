@@ -52,14 +52,7 @@ const EditarUsuario = () => {
   if (queryLoading || mutationLoading) return <Loading />;
 
   return (
-    <div>
-      <Link className="link" to="/usuarios">
-        volver a lista de usuarios
-        <img
-          src="https://i.ibb.co/BVfFWt3/User-Files-icon.png"
-          alt="User-Files-icon"
-        />
-      </Link>
+    <div className="contentForm">
       <h1 className="titulo">Editar Usuario</h1>
       <Form
         className="contenedor"
@@ -109,7 +102,7 @@ const EditarUsuario = () => {
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
           <Form.Label column sm="3">
-            Identificación
+            I.D
           </Form.Label>
           <Col sm="6">
             <Form.Control
@@ -144,11 +137,19 @@ const EditarUsuario = () => {
             </Form.Select>
           </Col>
         </Form.Group>
-        <div className="centrado">
-          <button onClick={submitForm}>Editar</button>
-        </div>
+          <div className="ordenBotones">
+            <button onClick={submitForm} className="botonEnviar">
+              <i class='bx bx-edit-alt' ></i>
+              Editar
+            </button>
+            <Link className="iconRegresar" to="/usuarios">
+              <i class='bx bx-arrow-back'></i>
+              Regresar
+            </Link>
+          </div>
       </Form>
     </div>
+    
   );
 };
 
