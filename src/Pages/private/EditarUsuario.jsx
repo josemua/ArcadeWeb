@@ -22,10 +22,10 @@ const EditarUsuario = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("fd", formData);
-    // editarUsuario({
-    //   variables: { _id, ...formData },
-    // });
+    delete formData.rol;
+    editarUsuario({
+      variables: { _id, ...formData },
+    });
   };
 
   const [
@@ -60,7 +60,20 @@ const EditarUsuario = () => {
         onChange={updateFormData}
         ref={form}
       >
-        <br />
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+          <Form.Label column sm="3">
+            Rol
+          </Form.Label>
+          <Col sm="6">
+            <Form.Control
+              type="text"
+              name="rol"
+              plaintext
+              readOnly
+              defaultValue={queryData.Usuario.rol}
+            />
+          </Col>
+        </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
           <Form.Label column sm="3">
             Nombre
@@ -95,7 +108,6 @@ const EditarUsuario = () => {
             <Form.Control
               type="text"
               name="correo"
-              readOnly
               defaultValue={queryData.Usuario.correo}
             />
           </Col>
@@ -108,24 +120,11 @@ const EditarUsuario = () => {
             <Form.Control
               type="text"
               name="identificacion"
-              readOnly
               defaultValue={queryData.Usuario.identificacion}
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
-          <Form.Label column sm="3">
-            Rol
-          </Form.Label>
-          <Col sm="6">
-            <Form.Select defaultValue={queryData.Usuario.rol} name="rol">
-              <option value="ADMINISTRADOR">Admin</option>
-              <option value="LIDER">Lider</option>
-              <option value="ESTUDIANTE">Estudiante</option>
-            </Form.Select>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+                <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
           <Form.Label column sm="3">
             Estado
           </Form.Label>
@@ -137,19 +136,18 @@ const EditarUsuario = () => {
             </Form.Select>
           </Col>
         </Form.Group>
-          <div className="ordenBotones">
-            <button onClick={submitForm} className="botonEnviar">
-              <i class='bx bx-edit-alt' ></i>
-              Editar
-            </button>
-            <Link className="iconRegresar" to="/usuarios">
-              <i class='bx bx-arrow-back'></i>
-              Regresar
-            </Link>
-          </div>
+        <div className="ordenBotones">
+          <button onClick={submitForm} className="botonEnviar">
+            <i className="bx bx-edit-alt" />
+            Editar
+          </button>
+          <Link className="iconRegresar" to="/admin/usuarios">
+            <i className="bx bx-arrow-back" />
+            Regresar
+          </Link>
+        </div>
       </Form>
     </div>
-    
   );
 };
 

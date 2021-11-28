@@ -3,10 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //public
 import Home from "../Pages/public/Home";
 import { NotFound } from "../Pages/public/NotFound";
+import Registro from "Pages/public/Registro";
+import Login from "Pages/public/Login";
 import ProjectList from "../Pages/public/ProjectList";
+
 //private
-import UserList from "../Pages/admin/UserList";
-import EditarUsuario from "../Pages/admin/EditarUsuario";
+import UserList from "../Pages/private/UserList";
+import EditarUsuario from "../Pages/private/EditarUsuario";
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";
@@ -17,11 +20,13 @@ const Rutas = () => {
     <Router>
       <Routes>
         <Route path="/admin" element={<PrivateLayout />}>
-        </Route>
-          <Route path="/" element={<PublicLayout />}>
-          <Route path="" element={<Home />} />
           <Route path="usuarios" element={<UserList />} />
-          <Route path="usuarios/editar/:_id" element={< EditarUsuario/>} />
+          <Route path="usuarios/editar/:_id" element={<EditarUsuario />} />
+        </Route>
+        <Route path="/" element={<PublicLayout />}>
+          <Route path="" element={<Home />} />
+          <Route path="registro" element={<Registro />} />
+          <Route path="login" element={<Login />} />
           <Route path="proyectos" element={<ProjectList />} />
           <Route path="*" element={<NotFound />} />
         </Route>

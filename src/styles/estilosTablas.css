@@ -17,12 +17,10 @@
     padding: 5px;
     border: 1px solid #ddd;
 }
+
 .tabla th {
     padding: 8px;
     border: 1px solid #ddd;
-}
-
-.tabla th {
     background-color: #166088;
     color: white;
     padding-top: 12px;
