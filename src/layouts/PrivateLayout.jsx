@@ -1,23 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Componentes/Navbars";
 import { Outlet } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { useMutation } from "@apollo/client";
+import { REFRESH_TOKEN } from "../graphql/auth/mutations";
+import { useNavigate } from "react-router-dom";
+import Loading from "Componentes/Loading";
+import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "context/auth";
 
 const PrivateLayout = () => {
+  const navigate = useNavigate();
+  const {setToken} = useAuth();
+  const [loadingAuth, setLoadingAuth] = useState(true);
 
+  const [
+    refreshToken,
+    { data: mutationData, loading: mutationLoading, error: mutationError },
+  ] = useMutation(REFRESH_TOKEN);
 
-//  return isAuthenticated ? (
+  useEffect(() => {
+    refreshToken();
+  }, [refreshToken]);
+
+  useEffect(() => {
+    if (mutationData) {
+      if (mutationData.refreshToken.token) {
+        console.log("set token", mutationData.refreshToken.token);
+        setToken(mutationData.refreshToken.token);
+      } else {
+        setToken(null);
+        navigate("/login");
+        //eslint-disable-next-line
+        toast.error("No estas autorizado para acceder a esa página ¯\_(ツ)_/¯");
+      }
+      setLoadingAuth(false);
+    }
+  }, [mutationData, setToken, loadingAuth, navigate]);
+
+  useEffect(() => {
+    if (mutationError) {
+      toast.error("Error validando el token");
+    }
+  }, [mutationError]);
+
+  if (mutationLoading || loadingAuth) return <Loading />;
+
   return (
     <>
       <Navbar />
       <div className="fondo">
         Este es el private Layout
-      <Outlet />
+          <Outlet />
       </div>
+      <ToastContainer />
     </>
-  // ) : (
-  //   <div>
-  //     <h1>No estas autorizado para hacer eso ¯\_(ツ)_/¯ </h1>
-  //   </div>
   );
 };
 

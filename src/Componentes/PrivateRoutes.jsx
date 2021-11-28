@@ -1,17 +1,15 @@
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import { Outlet } from "react-router-dom";
+import { useUser } from 'context/user';
+import React from 'react';
 
-const PrivateRoutes = () => {
-  const { isAuthenticated } = useAuth0();
+const PrivateRoutes = ({ roleList, children }) => {
+  const { userData } = useUser();
 
-  return isAuthenticated ? (
-    <Outlet/>
-  ) : (
-    <div>
-      <h1>No estas autorizado para hacer eso ¯\_(ツ)_/¯ </h1>
-    </div>
-  );
+  if (roleList.includes(userData.rol)) {
+    return children;
+  }
+
+  return (console.log(userData), <div className='titulo'>No estás autorizado para ver este sitio.</div>);
+  
 };
 
 export default PrivateRoutes;

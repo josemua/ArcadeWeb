@@ -1,9 +1,30 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { useUser } from "context/user";
+import { useAuth } from "context/auth";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+
+
 //import logoInicio from "logo2.png"
 
-const Navbars = () => {
 
+const Logout = () => {
+  const { setToken } = useAuth();
+  const deleteToken = () => {
+    setToken(null);
+  };
+  return (
+    <Nav className="me-auto iconNavbar">
+      <Nav.Link onClick={() => deleteToken()} to="/" className="iconNavbar">
+        <i className="bx bx-log-in" />
+        Cerrar Sesión
+      </Nav.Link>
+    </Nav>
+  );
+};
+
+const Navbars = () => {
+  const {authToken} = useAuth();
+  const { userData } = useUser();
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -13,40 +34,52 @@ const Navbars = () => {
         </Navbar.Brand>
         <Nav className="me-auto iconNavbar">
           <Nav.Link href="/">
-            <i class='bx bxs-home'></i>
-            Inicio</Nav.Link>
+            <i className="bx bxs-home"></i>
+            Inicio
+          </Nav.Link>
           <Nav.Link href="/proyectos" className="iconNavbar">
-            <i class='bx bx-folder-open'></i>
-            Proyectos</Nav.Link>
-          <Nav.Link href="/usuarios" className="me-auto iconNavbar">
-          <i class='bx bxs-user-rectangle'></i>
-            Usuarios</Nav.Link>
+            <i className="bx bx-folder-open"></i>
+            Proyectos
+          </Nav.Link>
         </Nav>
-        {/* {isAuthenticated ? (
-          <NavDropdown title={name} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="/proyectos">Proyectos</NavDropdown.Item>
-            <NavDropdown.Item href="/admin/usuarios">Usuarios</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/admin/inscripciones">Inscripciones</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/admin/avances">Avances</NavDropdown.Item>
-          </NavDropdown>
+        {authToken ? (
+          <Nav>
+            <NavDropdown title={userData.correo} id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/proyectos">
+                <i className="bx bx-folder-open" />
+                Proyectos
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/admin/usuarios">
+                <i className="bx bxs-user-rectangle" />
+                Usuarios
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/admin/inscripciones">
+                <i className="bx bx-edit" />
+                Inscripciones
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/admin/avances">
+                <i className="bx bx-calendar-check" />
+                Avances
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
         ) : null}
-        {isAuthenticated ? (
-          <button
-            onClick={() => logout({ returnTo: window.location.origin })}
-            className="btn btn-primary"
-          >
-            {textButton}
-          </button>
+        {authToken ? (
+          <Logout />
         ) : (
-          <button
-            onClick={() => loginWithRedirect()}
-            className="btn btn-primary"
-          >
-            {textButton}
-          </button>
-        )} */}
+          <Nav className="me-auto iconNavbar">
+            <Nav.Link href="/login" className="iconNavbar">
+              <i className="bx bx-log-in"></i>
+              Log-In
+            </Nav.Link>
+            <Nav.Link href="/registro" className="iconNavbar">
+              <i className="bx bx-edit"></i>
+              Registrarse
+            </Nav.Link>
+          </Nav>
+        )}
       </Container>
     </Navbar>
   );
