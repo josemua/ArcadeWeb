@@ -37,10 +37,8 @@ function App() {
   const setToken = (token) => {
     setAuthToken(token);
     if (token) {
-      console.log("setToken", token)
       localStorage.setItem("token", JSON.stringify(token));
     } else {
-      console.log("removeToken", token)
       localStorage.removeItem('token');
     }
   };

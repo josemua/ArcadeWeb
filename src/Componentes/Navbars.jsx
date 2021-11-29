@@ -7,21 +7,6 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 //import logoInicio from "logo2.png"
 
 
-const Logout = () => {
-  const { setToken } = useAuth();
-  const deleteToken = () => {
-    setToken(null);
-  };
-  return (
-    <Nav className="me-auto iconNavbar">
-      <Nav.Link onClick={() => deleteToken()} to="/" className="iconNavbar">
-        <i className="bx bx-log-in" />
-        Cerrar Sesión
-      </Nav.Link>
-    </Nav>
-  );
-};
-
 const Navbars = () => {
   const {authToken} = useAuth();
   const { userData } = useUser();
@@ -67,7 +52,12 @@ const Navbars = () => {
           </Nav>
         ) : null}
         {authToken ? (
-          <Logout />
+          <Nav className="me-auto iconNavbar">
+          <Nav.Link onClick={() => localStorage.setItem("token", null)} href="/login" className="iconNavbar">
+            <i className="bx bx-log-in" />
+            Cerrar Sesión
+          </Nav.Link>
+          </Nav>
         ) : (
           <Nav className="me-auto iconNavbar">
             <Nav.Link href="/login" className="iconNavbar">
