@@ -23,7 +23,6 @@ const PublicLayout = () => {
   useEffect(() => {
     if (mutationData) {
       if (mutationData.refreshToken.token) {
-        console.log("setToken");
         setToken(mutationData.refreshToken.token);
       } 
       setLoadingAuth(false);

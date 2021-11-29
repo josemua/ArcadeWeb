@@ -26,7 +26,6 @@ const PrivateLayout = () => {
   useEffect(() => {
     if (mutationData) {
       if (mutationData.refreshToken.token) {
-        console.log("set token", mutationData.refreshToken.token);
         setToken(mutationData.refreshToken.token);
       } else {
         setToken(null);
