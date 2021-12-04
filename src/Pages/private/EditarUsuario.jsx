@@ -7,6 +7,7 @@ import { EDITAR_USUARIO } from "../../graphql/usuarios/mutations";
 import { Col, Form, Row } from "react-bootstrap";
 import Loading from "../../Componentes/Loading";
 import useFormData from "../../hooks/useFormData";
+import PrivateComponent from "Componentes/PrivateComponent";
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -130,9 +131,11 @@ const EditarUsuario = () => {
           </Form.Label>
           <Col sm="6">
             <Form.Select defaultValue={queryData.Usuario.estado} name="estado">
-              <option value="PENDIENTE">Pendiente</option>
               <option value="AUTORIZADO">Autorizado</option>
+              <PrivateComponent roleList={["ADMINISTRADOR"]}>
+              <option value="PENDIENTE">Pendiente</option>
               <option value="NO_AUTORIZADO">No autorizado</option>
+              </PrivateComponent>
             </Form.Select>
           </Col>
         </Form.Group>

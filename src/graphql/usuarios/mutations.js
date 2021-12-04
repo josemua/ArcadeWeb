@@ -28,4 +28,18 @@ const EDITAR_USUARIO = gql`
   }
 `;
 
-export { EDITAR_USUARIO };
+const APROBAR_USUARIO = gql`
+mutation AprobarUsuario($id: String!) {
+  aprobarUsuario(_id: $id) {
+    _id
+    nombre
+    apellido
+    identificacion
+    correo
+    rol
+    estado
+  }
+}
+`;
+
+export { EDITAR_USUARIO, APROBAR_USUARIO };
