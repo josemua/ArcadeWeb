@@ -1,27 +1,49 @@
-import React, { useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
 import { GET_USUARIOS } from "../../graphql/usuarios/queries";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../Componentes/Loading";
 import PrivateRoutes from "Componentes/PrivateRoutes";
+import { APROBAR_USUARIO } from "graphql/usuarios/mutations";
 
 const UserList = () => {
-  const { data, error, loading } = useQuery(GET_USUARIOS);
+  const [id] = useState();
+  const { data: queryData, error: queryError, loading: queryLoading } = useQuery(GET_USUARIOS);
+
+  const [
+    aprobarUsuario,
+    { data: mutationData, loading: mutationLoading, error: mutationError },
+  ] = useMutation(APROBAR_USUARIO, {
+    variables: { id },
+  });
+
+  const changeId = (id) => {
+    aprobarUsuario({
+      variables: { id },
+    });
+    window.location.reload();
+  };
 
   useEffect(() => {
-    if (data) {
+    if (queryData) {
       toast.success("Usuarios cargados");
     }
-  }, [data]);
+    if (mutationData) {
+      toast.success("Usuario Autorizado");
+    }
+  }, [queryData, mutationData]);
 
   useEffect(() => {
-    if (error) {
+    if (queryError) {
       toast.error("Error consultando los usuarios");
     }
-  }, [error]);
+    if (mutationError) {
+      toast.error("Error autorizando al usuario");
+    }
+  }, [queryError, mutationError]);
 
-  if (loading) return <Loading />;
+  if (queryLoading || mutationLoading) return <Loading />;
 
   return (
     <PrivateRoutes roleList={["ADMINISTRADOR"]}>
@@ -37,12 +59,13 @@ const UserList = () => {
               <th>Rol</th>
               <th>Estado</th>
               <th>Editar</th>
+              <th>Aprobar</th>
             </tr>
           </thead>
           <tbody>
-            {data && data.Usuarios ? (
+            {queryData && queryData.Usuarios ? (
               <>
-                {data.Usuarios.map((u) => {
+                {queryData.Usuarios.map((u) => {
                   return (
                     <tr key={u._id}>
                       <td>{u.nombre}</td>
@@ -55,6 +78,11 @@ const UserList = () => {
                         <Link to={`/admin/usuarios/editar/${u._id}`}>
                           <i className="bx bxs-edit iconoTabla"></i>
                         </Link>
+                      </td>
+                      <td className="centrado">
+                      <button onClick={(e) => changeId(u._id)}>
+                        <i className="bx bx-check iconoTabla" />
+                      </button>
                       </td>
                     </tr>
                   );

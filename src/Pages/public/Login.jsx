@@ -81,7 +81,7 @@ const Login = () => {
         <div className="centrado">
           ¿No tienes una cuenta?
           <Link to="/registro">
-            <span className="text-blue-700">Inicia sesión</span>
+            <span className="text-blue-700">Regístrate</span>
           </Link>
         </div>
       </Form>

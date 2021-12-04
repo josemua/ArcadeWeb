@@ -1,4 +1,4 @@
-import { useUser } from 'context/userContext';
+import { useUser } from 'context/user';
 import React from 'react';
 
 const PrivateComponent = ({ roleList, children }) => {

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "Componentes/Loading";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "context/auth";
+import AuthorizedRoutes from "Componentes/AuthorizedRoutes";
 
 const PrivateLayout = () => {
   const navigate = useNavigate();
@@ -46,14 +47,14 @@ const PrivateLayout = () => {
   if (mutationLoading || loadingAuth) return <Loading />;
 
   return (
-    <>
+    <AuthorizedRoutes stateList={["AUTORIZADO"]}>
       <Navbar />
       <div className="fondo">
         Este es el private Layout
           <Outlet />
       </div>
       <ToastContainer />
-    </>
+    </AuthorizedRoutes>
   );
 };
 
