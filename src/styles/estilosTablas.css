@@ -1,13 +1,5 @@
-.contentTabla{
-    font-family: Montserrat, sans-serif;
-}
-
-.titulo{
-    text-align: center;
-    font-size: 2.5em;
-}
-
 .tabla {
+    font-family: Montserrat, sans-serif;
     width: 98%;
     margin: 10px;
 }
@@ -41,13 +33,12 @@
 .iconoTabla{
     border-style: none;
     font-size: 30px;
-    color: #166088cf;
     transition: all 0.5s ease;
   }
   
 .iconoTabla:hover{
     font-size: 30px;
-    color: #1d3557;
+    color: #3f587c;
     transition: all 0.5s ease;
 }
 

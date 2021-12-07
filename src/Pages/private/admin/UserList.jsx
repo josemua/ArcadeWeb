@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Loading from "../../../Componentes/Loading";
 import PrivateRoutes from "Componentes/PrivateRoutes";
 import { APROBAR_USUARIO } from "graphql/usuarios/mutations";
+import { Table } from "react-bootstrap";
 
 const UserList = () => {
   const [id] = useState();
@@ -52,20 +53,22 @@ const UserList = () => {
   if (queryLoading || mutationLoading) return <Loading />;
 
   return (
+    <div className="contenedor">
     <PrivateRoutes roleList={["ADMINISTRADOR"]}>
-      <div className="contentTabla">
-        <h2 className="titulo">Datos Usuarios:</h2>
-        <table className="tabla">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Correo</th>
-              <th>Identificación</th>
-              <th>Rol</th>
-              <th>Estado</th>
-              <th>Editar</th>
-              <th>Aprobar</th>
+      <h2 className="titulo">Datos Usuarios:</h2>
+    <Table striped bordered hover responsive variant="dark">
+        <thead>
+          <tr className="centrado">
+            <th>Correo</th>
+            {Array.from({ length: 1 }).map((_, nombre, apellido, identificación, rol, estado, editar, aprobar) => (
+            [<th key={nombre}>Nombre</th>,
+            <th key={apellido}>Apellido</th>,
+            <th key={identificación}>Identificación</th>,
+            <th key={rol}>Rol</th>,
+            <th key={estado}>Estado</th>,
+            <th key={editar}>Editar</th>,
+            <th key={aprobar}>Aprobar</th>]
+            ))}
             </tr>
           </thead>
           <tbody>
@@ -74,9 +77,9 @@ const UserList = () => {
                 {queryData.Usuarios.map((u) => {
                   return (
                     <tr key={u._id}>
+                      <td>{u.correo}</td>
                       <td>{u.nombre}</td>
                       <td>{u.apellido}</td>
-                      <td>{u.correo}</td>
                       <td>{u.identificacion}</td>
                       <td>{u.rol}</td>
                       <td>{u.estado}</td>
@@ -97,10 +100,10 @@ const UserList = () => {
             ) : (
               <div>No Autorizado</div>
             )}
-          </tbody>
-        </table>
+            </tbody>
+          </Table>
+      </PrivateRoutes>
       </div>
-    </PrivateRoutes>
   );
 };
 
