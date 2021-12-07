@@ -47,7 +47,7 @@ const Navbars = () => {
                 <i className="bx bxs-user-rectangle" />
                 Editar Perfil
               </NavDropdown.Item>
-              <PrivateComponent roleList={["ADMINISTRADOR"]}>
+              <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/admin/usuarios">
                 <i className="bx bxs-user-rectangle" />

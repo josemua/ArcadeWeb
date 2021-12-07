@@ -30,7 +30,15 @@ const Login = () => {
     if (mutationData) {
       if (mutationData.login.token) {
         setToken(mutationData.login.token);
-        navigate("/");}
+        navigate("/");
+        toast.success("¡Inicio de sesión exitoso!");
+      }
+
+      if (mutationData.login.error) {
+        return toast.error("usuario y/o contraseña incorrecta");
+      }
+    } else {
+      toast.error("Inicia sesión para ingresar");
     }
   }, [mutationData, setToken, navigate]);
 
@@ -43,20 +51,20 @@ const Login = () => {
   if (mutationLoading) return <Loading />;
 
   return (
-    <div className="contentForm">
-      <h1 className="titulo">Inicia Sesión</h1>
+    <div className="contenedor">
       <Form
-        className="contenedor"
+        className="formulario"
         onSubmit={submitForm}
         onChange={updateFormData}
         ref={form}
       >
-        <br />
+      <Form.Label className="titulo">Iniciar Sesión</Form.Label>
+      <div className="grid grid-cols-2 gap-5">
         <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Correo
           </Form.Label>
-          <Col sm="6">
+          <Col xs="auto">
             <Form.Control type="text" name="correo" required />
           </Col>
         </Form.Group>
@@ -64,7 +72,7 @@ const Login = () => {
           <Form.Label column sm="3">
             Password
           </Form.Label>
-          <Col sm="6">
+          <Col xs="auto">
             <Form.Control type="password" name="password" required />
           </Col>
         </Form.Group>
@@ -82,7 +90,8 @@ const Login = () => {
           ¿No tienes una cuenta?
           <Link to="/registro">
             <span className="text-blue-700">Regístrate</span>
-          </Link>
+            </Link>
+          </div>
         </div>
       </Form>
     </div>
