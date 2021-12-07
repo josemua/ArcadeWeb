@@ -47,9 +47,8 @@ const UserList = () => {
   if (queryLoading || mutationLoading) return <Loading />;
 
   return (
-    <div className="contenedor">
+    <>
     <PrivateRoutes roleList={["ADMINISTRADOR"]}>
-      <h2 className="titulo">Datos Usuarios:</h2>
     <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr className="centrado">
@@ -97,7 +96,7 @@ const UserList = () => {
             </tbody>
           </Table>
       </PrivateRoutes>
-      </div>
+      </>
   );
 };
 
