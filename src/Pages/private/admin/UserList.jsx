@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_USUARIOS } from "../../graphql/usuarios/queries";
+import { GET_USUARIOS } from "../../../graphql/usuarios/queries";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Loading from "../../Componentes/Loading";
+import Loading from "../../../Componentes/Loading";
 import PrivateRoutes from "Componentes/PrivateRoutes";
 import { APROBAR_USUARIO } from "graphql/usuarios/mutations";
 
@@ -27,10 +27,16 @@ const UserList = () => {
 
   useEffect(() => {
     if (queryData) {
-      toast.success("Usuarios cargados");
+      toast.success("Usuarios cargados",{
+        position: "bottom-center",
+        autoClose: 2000,
+        });
     }
     if (mutationData) {
-      toast.success("Usuario Autorizado");
+      toast.success("Usuario Autorizado",{
+        position: "bottom-center",
+        autoClose: 2000,
+        });
     }
   }, [queryData, mutationData]);
 
@@ -80,7 +86,7 @@ const UserList = () => {
                         </Link>
                       </td>
                       <td className="centrado">
-                      <button onClick={(e) => changeId(u._id)}>
+                      <button onClick={(e) => changeId(u._id)} className="aprovarBoton">
                         <i className="bx bx-check iconoTabla" />
                       </button>
                       </td>

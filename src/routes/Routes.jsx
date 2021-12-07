@@ -5,11 +5,11 @@ import Home from "../Pages/public/Home";
 import { NotFound } from "../Pages/public/NotFound";
 import Registro from "Pages/public/Registro";
 import Login from "Pages/public/Login";
-import ProjectList from "../Pages/public/ProjectList";
+import ProjectList from "../Pages/private/ProjectList";
 
 //private
-import UserList from "../Pages/private/UserList";
-import EditarUsuario from "../Pages/private/EditarUsuario";
+import UserList from "../Pages/private/admin/UserList";
+import EditarUsuario from "../Pages/private/admin/EditarUsuario";
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";

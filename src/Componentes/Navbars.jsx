@@ -1,36 +1,55 @@
 import React from "react";
 import { useUser } from "context/user";
 import { useAuth } from "context/auth";
+import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import PrivateComponent from "./PrivateComponent";
-
-
-//import logoInicio from "logo2.png"
-
 
 const Navbars = () => {
   const {authToken} = useAuth();
   const { userData } = useUser();
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand>
-          <img className="Logo" src="" alt="logo" />
-        </Navbar.Brand>
-        <Nav className="me-auto iconNavbar">
-          <Nav.Link href="/">
-            <i className="bx bxs-home"></i>
-            Inicio
-          </Nav.Link>
-          <Nav.Link href="/proyectos" className="iconNavbar">
-            <i className="bx bx-folder-open"></i>
-            Proyectos
-          </Nav.Link>
-        </Nav>
+    <nav className="barraNavegacion">
+      <Link to="/">
+      <img className="logoInicio" src="https://i.ibb.co/qjvKv9R/Logo.png" alt="Logo" border="0"/>
+      </Link>
         {authToken ? (
-          <Nav>
-            <NavDropdown title={userData.correo} id="navbarScrollingDropdown">
+          <>
+        <div className="cajasnav">
+            <Link to="/perfil" className="linkNav">
+            <i class='bx bx-user-circle'></i>
+              <span className="nombres_links">Perfil</span>
+            </Link>
+        </div>
+        <PrivateComponent roleList={["ADMINISTRADOR"]}>
+          <div className="cajasnav">
+            <Link to="/admin/usuarios" className="linkNav">
+              <i className="bx bxs-user-rectangle" />
+                <span className="nombres_links">Usuarios</span>
+            </Link>
+          </div>
+        </PrivateComponent>
+          <div className="cajasnav">
+          <Link to="/proyectos" className="linkNav">
+          <i className="bx bx-folder-open"></i>
+              <span className="nombres_links">Proyectos</span>
+          </Link>
+        </div>
+        <div className="cajasnav">
+          <Link to="/admin/inscripciones" className="linkNav">
+          <i className="bx bx-edit" />
+              <span className="nombres_links">Inscripciones</span>
+          </Link>
+        </div>
+        <div className="cajasnav">
+          <Link to="/admin/avances" className="linkNav">
+            <i className="bx bx-calendar-check" />
+              <span className="nombres_links">Avances</span>
+          </Link>
+        </div>
+          <Nav  className="barraLado">
+            <NavDropdown title={userData.nombre} id="navbarScrollingDropdown">
               <NavDropdown.Item href="/proyectos">
                 <i className="bx bx-folder-open" />
                 Proyectos
@@ -56,6 +75,7 @@ const Navbars = () => {
               </PrivateComponent>
             </NavDropdown>
           </Nav>
+          </>
         ) : null}
         {authToken ? (
           <Nav className="me-auto iconNavbar">
@@ -65,19 +85,28 @@ const Navbars = () => {
           </Nav.Link>
           </Nav>
         ) : (
-          <Nav className="me-auto iconNavbar">
-            <Nav.Link href="/login" className="iconNavbar">
-              <i className="bx bx-log-in"></i>
-              Log-In
-            </Nav.Link>
-            <Nav.Link href="/registro" className="iconNavbar">
-              <i className="bx bx-edit"></i>
-              Registrarse
-            </Nav.Link>
-          </Nav>
+          <>  
+            <div className="cajasnav">
+            <Link to="/" className="linkNav">
+              <i className="bx bxs-home"></i>
+              <span className="nombres_links">Inicio</span>
+            </Link>
+            </div>
+          <div className="cajasnav">
+            <Link to="/login" className="linkNav">
+            <i className="bx bx-log-in"></i>
+              <span className="nombres_links">Log-In</span>
+            </Link>
+          </div>
+          <div className="cajasnav">
+          <Link to="/registro" className="linkNav">
+            <i class='bx bx-file'></i>
+            <span className="nombres_links">Registrarse</span>
+          </Link>
+          </div>
+          </>
         )}
-      </Container>
-    </Navbar>
+    </nav>
   );
 };
 

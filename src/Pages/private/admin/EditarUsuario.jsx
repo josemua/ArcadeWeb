@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_USUARIO } from "../../graphql/usuarios/queries";
+import { GET_USUARIO } from "../../../graphql/usuarios/queries";
 import { toast } from "react-toastify";
-import { EDITAR_USUARIO } from "../../graphql/usuarios/mutations";
+import { EDITAR_USUARIO } from "../../../graphql/usuarios/mutations";
 import { Col, Form, Row } from "react-bootstrap";
-import Loading from "../../Componentes/Loading";
-import useFormData from "../../hooks/useFormData";
+import Loading from "../../../Componentes/Loading";
+import useFormData from "../../../hooks/useFormData";
 import PrivateComponent from "Componentes/PrivateComponent";
 
 const EditarUsuario = () => {
