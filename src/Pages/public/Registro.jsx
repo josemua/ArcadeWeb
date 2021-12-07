@@ -44,21 +44,23 @@ const Registro = () => {
   if (mutationLoading) return <Loading />;
 
   return (
-    <div className="contentForm">
-      <h1 className="titulo">Regístrate</h1>
+    <div className="contenedor">
       <Form
-        className="contenedor"
+        className="formulario"
         onSubmit={submitForm}
         onChange={updateFormData}
         ref={form}
       >
+      <Form.Label className="titulo">
+      Regístrate
+  </Form.Label>
         <br/>
         <div className="grid grid-cols-2 gap-5">
           <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
             <Form.Label column sm="3">
               Nombre
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Control type="text" name="nombre" required />
             </Col>
           </Form.Group>
@@ -67,7 +69,7 @@ const Registro = () => {
             <Form.Label column sm="3">
               Apellido
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Control type="text" name="apellido" required />
             </Col>
           </Form.Group>
@@ -76,7 +78,7 @@ const Registro = () => {
             <Form.Label column sm="3">
               I.D
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Control type="text" name="identificacion" required />
             </Col>
           </Form.Group>
@@ -85,7 +87,7 @@ const Registro = () => {
             <Form.Label column sm="3">
               Correo
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Control type="text" name="correo" required />
             </Col>
           </Form.Group>
@@ -94,7 +96,7 @@ const Registro = () => {
             <Form.Label column sm="3">
               Password
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Control type="password" name="password" required />
             </Col>
           </Form.Group>
@@ -102,7 +104,7 @@ const Registro = () => {
             <Form.Label column sm="3">
               Rol
             </Form.Label>
-            <Col sm="6">
+            <Col xs="auto">
               <Form.Select required name="rol">
                 <option itemType="Enum_Rol" value="ESTUDIANTE">
                   Estudiante

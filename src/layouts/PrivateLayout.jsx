@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Componentes/Navbars";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation } from "@apollo/client";
 import { REFRESH_TOKEN } from "../graphql/auth/mutations";
-import { useNavigate } from "react-router-dom";
 import Loading from "Componentes/Loading";
-import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "context/auth";
 import AuthorizedRoutes from "Componentes/AuthorizedRoutes";
+import "react-toastify/dist/ReactToastify.css";
 
 const PrivateLayout = () => {
   const navigate = useNavigate();
@@ -25,16 +24,23 @@ const PrivateLayout = () => {
   }, [refreshToken]);
 
   useEffect(() => {
-    if (mutationData) {
-      if (mutationData.refreshToken.token) {
-        setToken(mutationData.refreshToken.token);
-      } else {
-        setToken(null);
-        navigate("/login");
-        //eslint-disable-next-line
-        toast.error("No estas autorizado para acceder a esa página ¯\_(ツ)_/¯");
+    try {
+      if (mutationData) {
+        if (mutationData.refreshToken.token) {
+          setToken(mutationData.refreshToken.token);
+        } else {
+          setToken(null);
+          navigate("/login");
+          toast.error(
+            //eslint-disable-next-line
+            "No estas autorizado para acceder a esa página ¯\\_(ツ)_/¯"
+          );
+        }
+        setLoadingAuth(false);
       }
-      setLoadingAuth(false);
+    } catch (error) {
+      navigate("/login");
+      toast.error("No pudimos verificar tu identidad, vuelve a logearte");
     }
   }, [mutationData, setToken, loadingAuth, navigate]);
 
@@ -47,14 +53,15 @@ const PrivateLayout = () => {
   if (mutationLoading || loadingAuth) return <Loading />;
 
   return (
-    <AuthorizedRoutes stateList={["AUTORIZADO"]}>
-      <Navbar />
-      <div className="fondo">
-        Este es el private Layout
+    <div className="fondo">
+      <AuthorizedRoutes stateList={["AUTORIZADO"]}>
+        <Navbar />
+        <div className="contentPage">
           <Outlet />
-      </div>
-      <ToastContainer />
-    </AuthorizedRoutes>
+        </div>
+        <ToastContainer />
+      </AuthorizedRoutes>
+    </div>
   );
 };
 

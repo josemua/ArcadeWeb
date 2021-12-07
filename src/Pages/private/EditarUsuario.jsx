@@ -53,19 +53,21 @@ const EditarUsuario = () => {
   if (queryLoading || mutationLoading) return <Loading />;
 
   return (
-    <div className="contentForm">
-      <h1 className="titulo">Editar Usuario</h1>
+    <div className="contenedor">
       <Form
-        className="contenedor"
+        className="formulario"
         onSubmit={submitForm}
         onChange={updateFormData}
         ref={form}
       >
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+      <Form.Label className="titulo">Editar Usuario</Form.Label>
+
+      <div className="grid grid-cols-2 gap-5">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Rol
           </Form.Label>
-          <Col sm="6">
+          <Col sx="auto">
             <Form.Control
               type="text"
               name="rol"
@@ -75,11 +77,11 @@ const EditarUsuario = () => {
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Nombre
           </Form.Label>
-          <Col sm="6">
+          <Col Col sx="auto">
             <Form.Control
               type="text"
               name="nombre"
@@ -88,11 +90,11 @@ const EditarUsuario = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Apellido
           </Form.Label>
-          <Col sm="6">
+          <Col Col sx="auto">
             <Form.Control
               type="text"
               name="apellido"
@@ -101,11 +103,11 @@ const EditarUsuario = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Correo
           </Form.Label>
-          <Col sm="6">
+          <Col Col sx="auto">
             <Form.Control
               type="text"
               name="correo"
@@ -113,11 +115,11 @@ const EditarUsuario = () => {
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             I.D
           </Form.Label>
-          <Col sm="6">
+          <Col Col sx="auto">
             <Form.Control
               type="text"
               name="identificacion"
@@ -125,11 +127,11 @@ const EditarUsuario = () => {
             />
           </Col>
         </Form.Group>
-                <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
+                <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="3">
             Estado
           </Form.Label>
-          <Col sm="6">
+          <Col Col sx="auto">
             <Form.Select defaultValue={queryData.Usuario.estado} name="estado">
               <option value="AUTORIZADO">Autorizado</option>
               <PrivateComponent roleList={["ADMINISTRADOR"]}>
@@ -147,7 +149,8 @@ const EditarUsuario = () => {
           <Link className="iconRegresar" to="/admin/usuarios">
             <i className="bx bx-arrow-back" />
             Regresar
-          </Link>
+            </Link>
+          </div>
         </div>
       </Form>
     </div>
