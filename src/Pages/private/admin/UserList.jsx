@@ -84,14 +84,12 @@ const UserList = () => {
                       <td>{u.rol}</td>
                       <td>{u.estado}</td>
                       <td className="centrado">
-                        <Link to={`/admin/usuarios/editar/${u._id}`}>
+                        <Link to={`/user/usuarios/editar/${u._id}`}>
                           <i className="bx bxs-edit iconoTabla"></i>
                         </Link>
                       </td>
                       <td className="centrado">
-                      <button onClick={(e) => changeId(u._id)} className="aprovarBoton">
-                        <i className="bx bx-check iconoTabla" />
-                      </button>
+                        <i onClick={(e) => changeId(u._id)} className="bx bx-check iconoTabla" />
                       </td>
                     </tr>
                   );

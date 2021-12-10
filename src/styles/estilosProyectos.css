@@ -21,7 +21,6 @@
 }
 
 .tituloProyectos{
-    font-size: 2.5em;
     color: #110E19;
 }
 
@@ -30,13 +29,13 @@
     flex-direction: column;
     background-color: #110E19;
     border-radius: 20px;
-    height: 250px;
+    height: 208px;
     width: 280px;
     margin: 12px ;
     border: solid 2px;
   }
   
-.tarjetaProyecto .tituloProyecto,.liderProyecto,.estadoProyecto,.usuariosProyecto{
+.tarjetaProyecto .faseProyecto, .inicioProyecto, .liderProyecto, .estadoProyecto, .usuariosProyecto, .tituloProyecto{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +44,7 @@
 
 .tituloProyecto{
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 22px;
     background-color: #110E19;
     text-align: center;
     width: 100%;
@@ -55,37 +54,21 @@
     border-top-right-radius: 20px;
   }
 
-.estadoProyecto{
+.faseProyecto, .inicioProyecto {
     font-size: 14px;
-    background-color: #dbe9ee;
-    text-align: center;
-    padding:2px;
-    width: 100%;
-    height: 30px;
-}  
-
-.liderProyecto{
-    font-size: 13px;
     color: thistle;
     background-color: #110E19;
     text-align: center;
     width: 100%;
-    height: 30px;
-}
-.objetivosProyecto{
-    font-size: 15px;
-    background-color: #30b9fe;
-    text-align: center;
-    padding:2px;
-    width: 100%;
-    height: 60px;
+    height: 24px;
 }  
 
-.usuariosProyecto{
+.liderProyecto, .estadoProyecto, .usuariosProyecto{
+    font-size: 14px;
     background-color: #dbe9ee;
     text-align: center;
     width: 100%;
-    height: 100px;
+    height: 24px;
 }
 
 .botonesProyecto{

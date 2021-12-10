@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import Loading from "../../Componentes/Loading";
 import React, { useEffect } from "react";
 
-const ProjectList = () => {
+const ProjectLid = () => {
   const { data, error, loading } = useQuery(GET_PROYECTOS);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ProjectList = () => {
 
   return (
     <div className="contenedorTodoProyecto">
-      <h2 className="titulo">Proyectos:</h2>
+      <h2 className="titulo">Mis proyectos:</h2>
     <div className="contenedorProyectos">
       {data &&
         data.Proyectos.map((u) => {
@@ -37,4 +37,4 @@ const ProjectList = () => {
   );
 };
 
-export default ProjectList;
+export default ProjectLid;

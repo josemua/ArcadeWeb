@@ -21,15 +21,10 @@ const GET_PROYECTOS = gql`
 `;
 
 const GET_PROYECTO = gql`
-  query Proyecto($_id: String!) {
-    Proyecto(_id: $_id) {
+  query filtrarProyecto($idProyecto: String!) {
+    filtrarProyecto(_id: $idProyecto) {
       _id
       nombre
-      presupuesto
-      fechaInicio
-      fechaFin
-      estado
-      fase
     }
   }
 `;

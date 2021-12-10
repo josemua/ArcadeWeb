@@ -17,58 +17,68 @@ const Navbars = () => {
         {authToken ? (
           <>
         <div className="cajasnav">
-            <Link to="/perfil" className="linkNav">
+            <Link to="/user/perfil" className="linkNav">
             <i class='bx bx-user-circle'></i>
               <span className="nombres_links">Perfil</span>
             </Link>
         </div>
+        <div className="cajasnav">
+          <Link to="/user/proyectos" className="linkNav">
+          <i className="bx bx-folder-open"></i>
+              <span className="nombres_links">Proyectos</span>
+          </Link>
+        </div>
         <PrivateComponent roleList={["ADMINISTRADOR"]}>
           <div className="cajasnav">
-            <Link to="/admin/usuarios" className="linkNav">
+            <Link to="/user/usuarios" className="linkNav">
               <i className="bx bxs-user-rectangle" />
                 <span className="nombres_links">Usuarios</span>
             </Link>
           </div>
         </PrivateComponent>
+        <PrivateComponent roleList={["LIDER"]}>
           <div className="cajasnav">
-          <Link to="/proyectos" className="linkNav">
-          <i className="bx bx-folder-open"></i>
-              <span className="nombres_links">Proyectos</span>
-          </Link>
-        </div>
-        <div className="cajasnav">
-          <Link to="/admin/inscripciones" className="linkNav">
-          <i className="bx bx-edit" />
-              <span className="nombres_links">Inscripciones</span>
-          </Link>
-        </div>
-        <div className="cajasnav">
-          <Link to="/admin/avances" className="linkNav">
-            <i className="bx bx-calendar-check" />
-              <span className="nombres_links">Avances</span>
-          </Link>
-        </div>
+            <Link to="/user/inscripciones" className="linkNav">
+            <i className="bx bx-edit" />
+                <span className="nombres_links">Inscripciones</span>
+            </Link>
+          </div>
+          <div className="cajasnav">
+            <Link to="/user/proyectosLid" className="linkNav">
+              <i class='bx bxs-copy-alt'></i>
+              <span className="nombres_links">Mis proyectos</span>
+            </Link>
+          </div>
+        </PrivateComponent>
+        <PrivateComponent roleList={["ESTUDIANTE"]}>
+          <div className="cajasnav">
+            <Link to="/user/avances" className="linkNav">
+              <i className="bx bx-calendar-check" />
+                <span className="nombres_links">Avances</span>
+            </Link>
+          </div>
+        </PrivateComponent>
           <Nav  className="barraLado">
             <NavDropdown title={userData.nombre} id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/proyectos">
+              <NavDropdown.Item href="user/proyectos">
                 <i className="bx bx-folder-open" />
                 Proyectos
               </NavDropdown.Item>
-              <NavDropdown.Item href="/admin/inscripciones">
+              <NavDropdown.Item href="/user/inscripciones">
                 <i className="bx bx-edit" />
                 Inscripciones
               </NavDropdown.Item>
-              <NavDropdown.Item href="/admin/avances">
+              <NavDropdown.Item href="/user/avances">
                 <i className="bx bx-calendar-check" />
                 Avances
               </NavDropdown.Item>
-              <NavDropdown.Item href={`/admin/usuarios/editar/${userData._id}`}>
+              <NavDropdown.Item href={`/user/usuarios/editar/${userData._id}`}>
                 <i className="bx bxs-user-rectangle" />
                 Editar Perfil
               </NavDropdown.Item>
               <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/admin/usuarios">
+              <NavDropdown.Item href="/user/usuarios">
                 <i className="bx bxs-user-rectangle" />
                 Usuarios
               </NavDropdown.Item>
@@ -87,10 +97,10 @@ const Navbars = () => {
         ) : (
           <>  
             <div className="cajasnav">
-            <Link to="/" className="linkNav">
-              <i className="bx bxs-home"></i>
-              <span className="nombres_links">Inicio</span>
-            </Link>
+              <Link to="/" className="linkNav">
+                <i className="bx bxs-home"></i>
+                <span className="nombres_links">Inicio</span>
+              </Link>
             </div>
           <div className="cajasnav">
             <Link to="/login" className="linkNav">

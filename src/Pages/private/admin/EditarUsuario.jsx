@@ -12,6 +12,7 @@ import PrivateComponent from "Componentes/PrivateComponent";
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
+  console.log({ _id });
 
   const {
     data: queryData,
@@ -146,7 +147,7 @@ const EditarUsuario = () => {
             <i className="bx bx-edit-alt" />
             Editar
           </button>
-          <Link className="iconRegresar" to="/admin/usuarios">
+          <Link className="iconRegresar" to="/user/usuarios">
             <i className="bx bx-arrow-back" />
             Regresar
             </Link>

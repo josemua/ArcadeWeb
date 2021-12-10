@@ -3,16 +3,25 @@ import { Dialog, Tooltip } from '@material-ui/core';
 import { CREAR_INSCRIPCION } from "../graphql/inscripciones/mutations";
 import useFormData from "../hooks/useFormData";
 import { useParams, Link } from "react-router-dom";
+import { useUser } from "context/user";
 import { useQuery, useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import PrivateComponent from "./PrivateComponent";
 
 const ProjectCard = (props) => {
-  const [openDialog, setOpenDialog] = useState(false);
-  const CrearInscripcion = async () =>{
+  const { userData } = useUser();
+    const proyecto = props.id;
+    const estudiante = userData._id;
 
+    const [openDialog, setOpenDialog] = useState(false);
+    const CreacionInscripcion = async () =>{
+      crearInscripcion({
+        variables: proyecto, estudiante
+      });
+    }
+    
     const [
-      ,{ data:  mutationData, error: mutationError },
+      crearInscripcion,{ data: mutationData, loading: mutationLoading, error: mutationError },
     ] = useMutation(CREAR_INSCRIPCION);
 
     useEffect(() => {
@@ -25,38 +34,39 @@ const ProjectCard = (props) => {
       if (mutationError) {
         toast.error("Error creando la inscripcion");
       }
-
       }, [mutationError]);
-    }
+    
     return (
         <div className="tarjetaProyecto">
             <div className="tituloProyecto">
                 {props.titulo}
             </div>
-            <div className="estadoProyecto">
-                Estado: {props.estado}
-            </div>
             <div  className="liderProyecto">
                 Lider: {props.lider}
             </div>
-            {/* <div className="objetivosProyecto">
-                {props.objetivos}
-            </div> */}
+            <div  className="faseProyecto">
+                Fase: {props.usuarios}
+            </div>
+            <div className="estadoProyecto">
+                Estado: {props.estado}
+            </div>
+            <div className="inicioProyecto">
+                Fecha inicio: {props.inicio}
+            </div>
             <div  className="usuariosProyecto">
-              <span>Usuarios</span>
-                {props.usuarios}
+                Cantidad de Usuarios: {props.usuarios}
             </div>
             <div className="botonesProyecto">
-                <button>
-                    Detalles
-                </button>
+                <Link to={`/user/proyecto/${props.id}`}>
+                  <button>
+                      Detalles
+                  </button>
+                </Link>
                 <div className=''>
             <PrivateComponent roleList={["ESTUDIANTE"]}>
-              <Tooltip title='Eliminar producto' arrow>
                     <button className="apuntador" onClick={() => setOpenDialog(true)}>
                       Registrarse
                     </button>
-                  </Tooltip>
               </PrivateComponent>
               
         </div>
@@ -66,7 +76,7 @@ const ProjectCard = (props) => {
                 ¿Está segur@ de solicitar inscribirse en este proyecto?
               </h1>
               <div className='opcionesIncripcion'>
-                <button onClick={() => CrearInscripcion()} className='botonSi'> 
+                <button onClick={() => CreacionInscripcion()} className='botonSi'> 
                   Sí
                 </button>
                 <button onClick={() => setOpenDialog(false)} className='botonNo'>
