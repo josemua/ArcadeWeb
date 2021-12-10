@@ -48,7 +48,7 @@ const UserList = () => {
 
   return (
     <>
-    <PrivateRoutes roleList={["ADMINISTRADOR"]}>
+    <PrivateRoutes roleList={["ADMINISTRADOR", "LIDER"]}>
     <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr className="centrado">
