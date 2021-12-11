@@ -8,7 +8,9 @@ const AuthorizedRoutes = ({ stateList, children }) => {
     return children;
   }
 
-  return (console.log(userData), <div className='titulo'>Aun no has sido autorizado para acceder.</div>);
+  return (console.log(userData), 
+  <div className='titulo rutaRestringida'> No estas autorizad@ para acceder a esta página. </div>
+  );
   
 };
 

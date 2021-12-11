@@ -1,0 +1,52 @@
+@media (max-width: 850px){
+    .linkNav{
+        display: none;
+    }
+}
+
+@media (min-width: 850px){
+    .barraLado{
+        display: none;
+    }
+}
+
+.barraNavegacion{
+    width: 100%;
+    height: 60px;
+    background-color: #110E19;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    align-content: center;
+}
+
+.logoInicio{
+    height: 40px;
+    width: 40px;
+    margin-left: 10px
+  }
+
+.cajasNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.linkNav{
+    text-decoration: none;
+    font-size: 20px;
+    padding: 4px;
+    border-radius: 20px;
+    color: #FFFF;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.linkNav:hover{
+    color:#30b9fe; 
+    transition: all 0.5s ease;
+}

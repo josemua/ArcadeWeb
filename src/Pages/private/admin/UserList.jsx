@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_USUARIOS } from "../../graphql/usuarios/queries";
-import { Link } from "react-router-dom";
+import { GET_USUARIOS } from "../../../graphql/usuarios/queries";
 import { toast } from "react-toastify";
-import Loading from "../../Componentes/Loading";
+import Loading from "../../../Componentes/Loading";
 import PrivateRoutes from "Componentes/PrivateRoutes";
 import { APROBAR_USUARIO } from "graphql/usuarios/mutations";
 import { Table } from "react-bootstrap";
@@ -28,10 +27,16 @@ const UserList = () => {
 
   useEffect(() => {
     if (queryData) {
-      toast.success("Usuarios cargados");
+      toast.success("Usuarios cargados",{
+        position: "bottom-center",
+        autoClose: 2000,
+        });
     }
     if (mutationData) {
-      toast.success("Usuario Autorizado");
+      toast.success("Usuario Autorizado",{
+        position: "bottom-center",
+        autoClose: 2000,
+        });
     }
   }, [queryData, mutationData]);
 
@@ -47,8 +52,9 @@ const UserList = () => {
   if (queryLoading || mutationLoading) return <Loading />;
 
   return (
-    <>
+    <div className="contenedor">
     <PrivateRoutes roleList={["ADMINISTRADOR", "LIDER"]}>
+      <h2 className="titulo">Datos Usuarios:</h2>
     <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr className="centrado">
@@ -59,7 +65,6 @@ const UserList = () => {
             <th key={identificación}>Identificación</th>,
             <th key={rol}>Rol</th>,
             <th key={estado}>Estado</th>,
-            <th key={editar}>Editar</th>,
             <th key={aprobar}>Aprobar</th>]
             ))}
             </tr>
@@ -77,14 +82,7 @@ const UserList = () => {
                       <td>{u.rol}</td>
                       <td>{u.estado}</td>
                       <td className="centrado">
-                        <Link to={`/admin/usuarios/editar/${u._id}`}>
-                          <i className="bx bxs-edit iconoTabla"></i>
-                        </Link>
-                      </td>
-                      <td className="centrado">
-                      <button onClick={(e) => changeId(u._id)}>
-                        <i className="bx bx-check iconoTabla" />
-                      </button>
+                        <i onClick={(e) => changeId(u._id)} className="bx bx-check iconoTabla" />
                       </td>
                     </tr>
                   );
@@ -96,7 +94,7 @@ const UserList = () => {
             </tbody>
           </Table>
       </PrivateRoutes>
-      </>
+      </div>
   );
 };
 
