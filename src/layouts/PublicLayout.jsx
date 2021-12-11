@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Componentes/Navbars";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useAuth } from "context/auth";
+import { toast, ToastContainer } from "react-toastify";
 import { useMutation } from "@apollo/client";
 import { REFRESH_TOKEN } from "graphql/auth/mutations";
-import { toast, ToastContainer } from "react-toastify";
 import Loading from "Componentes/Loading";
+import { useAuth } from "context/auth";
 import "react-toastify/dist/ReactToastify.css";
 
 const PublicLayout = () => {

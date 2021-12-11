@@ -6,12 +6,24 @@ import { NotFound } from "../Pages/public/NotFound";
 import Registro from "Pages/public/Registro";
 import Login from "Pages/public/Login";
 
-//private
-import UserList from "../Pages/private/admin/UserList";
 import EditarUsuario from "../Pages/private/admin/EditarUsuario";
 import ProjectList from "../Pages/private/ProjectList";
 import DetallesProyecto from "../Pages/private/DetallesProyecto";
-import Perfil from "../Pages/private/Perfil";
+// import Perfil from "../Pages/private/Perfil";
+
+
+//admin - lider
+import UserList from "../Pages/private/admin/UserList";
+
+//admin
+
+
+//lider
+import CrearProyecto from "../Pages/private/CrearProyecto";
+
+
+//estudiante
+
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";
@@ -26,6 +38,7 @@ const Rutas = () => {
           <Route path="usuarios/editar/:_id" element={<EditarUsuario />} />
           <Route path="proyecto/:_id" element={<DetallesProyecto />} />
           <Route path="proyectos" element={<ProjectList />} />
+          <Route path="proyectos/nuevo" element={<CrearProyecto />} />
         </Route>
         <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Home />} />
