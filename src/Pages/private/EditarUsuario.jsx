@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_USUARIO } from "../../../graphql/usuarios/queries";
+import { GET_USUARIO } from "../../graphql/usuarios/queries";
 import { toast } from "react-toastify";
-import { EDITAR_USUARIO } from "../../../graphql/usuarios/mutations";
+import { EDITAR_USUARIO } from "../../graphql/usuarios/mutations";
 import { Col, Form, Row } from "react-bootstrap";
-import Loading from "../../../Componentes/Loading";
-import useFormData from "../../../hooks/useFormData";
+import Loading from "../../Componentes/Loading";
+import useFormData from "../../hooks/useFormData";
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -84,7 +84,7 @@ const EditarUsuario = () => {
           <Col Col sx="auto">
           <Form.Control
               type="text"
-              name="rol"
+              name="estado"
               plaintext
               readOnly
               defaultValue={queryData.Usuario.estado}
@@ -152,7 +152,7 @@ const EditarUsuario = () => {
             <i className="bx bx-edit-alt" />
             Editar
           </button>
-          <Link className="iconRegresar" to="/user/usuarios">
+          <Link className="iconRegresar" to="/">
             <i className="bx bx-arrow-back" />
             Regresar
             </Link>

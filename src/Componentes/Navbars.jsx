@@ -38,15 +38,15 @@ const Navbars = () => {
         </PrivateComponent>
         <PrivateComponent roleList={["LIDER"]}>
           <div className="cajasnav">
-            <Link to="/user/inscripciones" className="linkNav">
+            <Link to="/user/usuarios" className="linkNav">
             <i className="bx bx-edit" />
-                <span className="nombres_links">Inscripciones</span>
+                <span className="nombres_links">Estudiantes</span>
             </Link>
           </div>
           <div className="cajasnav">
-            <Link to="/user/proyectosLid" className="linkNav">
-              <i class='bx bxs-copy-alt'></i>
-              <span className="nombres_links">Mis proyectos</span>
+            <Link to="/user/proyectos/nuevo" className="linkNav">
+          <i className="bx bx-folder-plus" />
+              <span className="nombres_links">Liderar Proyecto</span>
             </Link>
           </div>
         </PrivateComponent>
@@ -74,7 +74,7 @@ const Navbars = () => {
               </NavDropdown.Item>
               <NavDropdown.Item href={`/user/usuarios/editar/${userData._id}`}>
                 <i className="bx bxs-user-rectangle" />
-                Editar Perfil
+                Perfil
               </NavDropdown.Item>
               <PrivateComponent roleList={["ADMINISTRADOR"]}>
               <NavDropdown.Divider />
@@ -85,11 +85,11 @@ const Navbars = () => {
               </PrivateComponent>
               <PrivateComponent roleList={["LIDER"]}>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/admin/usuarios">
+              <NavDropdown.Item href="/user/usuarios">
                 <i className="bx bxs-user-rectangle" />
                 Usuarios
               </NavDropdown.Item>
-              <NavDropdown.Item href="/admin/proyectos/nuevo">
+              <NavDropdown.Item href="/user/proyectos/nuevo">
                 <i className="bx bx-folder-plus" />
                 Liderar Proyecto
               </NavDropdown.Item>

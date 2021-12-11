@@ -5,7 +5,7 @@ const CREAR_AVANCE = gql`
     $fecha: Date!
     $descripcion: String!
     $proyecto: String!
-    $creadoPor: Usuario!
+    $creadoPor: String!
   ) {
     crearAvance(
       fecha: $fecha
