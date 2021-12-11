@@ -6,6 +6,8 @@ import { NotFound } from "../Pages/public/NotFound";
 import Registro from "../Pages/public/Registro";
 import Login from "../Pages/public/Login";
 import ProjectList from "../Pages/public/ProjectList";
+import Formulario from "Pages/public/Avances";
+import Cartas from "Componentes/cartas";
 
 //private
 import UserList from "../Pages/private/UserList";
@@ -30,7 +32,9 @@ const Rutas = () => {
           <Route path="registro" element={<Registro />} />
           <Route path="login" element={<Login />} />
           <Route path="proyectos" element={<ProjectList />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Formulario />} />
+          <Route path="cards" element={<Cartas />} />
+          <Route path="proyectos/avances/:id" element={<Formulario />} />
         </Route>
       </Routes>
     </Router>
