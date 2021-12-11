@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //public
 import Home from "../Pages/public/Home";
 import { NotFound } from "../Pages/public/NotFound";
-import Registro from "Pages/public/Registro";
-import Login from "Pages/public/Login";
+import Registro from "../Pages/public/Registro";
+import Login from "../Pages/public/Login";
+import ProjectList from "../Pages/public/ProjectList";
+import Formulario from "Pages/public/Avances";
+import Cartas from "Componentes/cartas";
 
 import EditarUsuario from "../Pages/private/admin/EditarUsuario";
 import ProjectList from "../Pages/private/ProjectList";
@@ -44,6 +47,9 @@ const Rutas = () => {
           <Route path="" element={<Home />} />
           <Route path="registro" element={<Registro />} />
           <Route path="login" element={<Login />} />
+          <Route path="proyectos" element={<ProjectList />} />
+          <Route path="cards" element={<Cartas />} />
+          <Route path="proyectos/avances/:id" element={<Formulario />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
