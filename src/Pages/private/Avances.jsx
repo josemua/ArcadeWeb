@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useMutation } from "@apollo/client";
 import { Col, Form, Row } from "react-bootstrap";
@@ -8,18 +8,17 @@ import useFormData from "../../hooks/useFormData";
 import { CREAR_AVANCE } from "graphql/avances/mutations";
 import { useUser } from 'context/user';
 
-const Avances = (props) => {
-
+const Avances = () => {
+    const { id } = useParams();
     const { userData } = useUser();
 
     const { form, formData, updateFormData } = useFormData();
 
     const submitForm = (e) => {
         e.preventDefault();
-        /* crearAvance({
-            variables: formData,
-        }); */
-        console.log(formData);
+        crearAvance({
+            variables: { ...formData},
+        });
     };
 
     const [
@@ -29,9 +28,8 @@ const Avances = (props) => {
 
     useEffect(() => {
         if (mutationData) {
-            if (mutationData.registro.token) {
+            toast.succes("Avance creado exitosamente");
             }
-        }
     }, [mutationData]);
 
     useEffect(() => {
@@ -74,9 +72,10 @@ const Avances = (props) => {
                             <Form.Control type="date" name="fecha" required />
                         </Col>
                     </Form.Group>
+                </div>
 
                         <Form.Label column sm="3">
-                            <b>creado por {userData.nombre}</b>
+                            <b>creado por {userData.nombre} {userData.apellido}</b>
                         </Form.Label>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
                         <Col xs="auto">
@@ -86,11 +85,9 @@ const Avances = (props) => {
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintext">
                         <Col xs="auto">
-                            <Form.Control type="text" name="proyecto" hidden defaultValue={props.id} />
+                            <Form.Control type="text" name="proyecto" hidden defaultValue={id} />
                         </Col>
                     </Form.Group>
-
-                </div>
 
                 <div className="ordenBotones">
                     <button onClick={submitForm} className="botonEnviar">
