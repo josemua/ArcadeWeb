@@ -15,9 +15,10 @@ const ProjectCard = (props) => {
 
     const [openDialog, setOpenDialog] = useState(false);
     const CreacionInscripcion = async () =>{
-      crearInscripcion({
+      /* crearInscripcion({
         variables: proyecto, estudiante
-      });
+      }); */
+      console.log(proyecto, estudiante)
     }
     
     const [

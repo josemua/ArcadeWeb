@@ -26,7 +26,6 @@ const Rutas = () => {
           <Route path="usuarios/editar/:_id" element={<EditarUsuario />} />
           <Route path="proyecto/:_id" element={<DetallesProyecto />} />
           <Route path="proyectos" element={<ProjectList />} />
-          <Route path="perfil" element={<Perfil />} />
         </Route>
         <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Home />} />

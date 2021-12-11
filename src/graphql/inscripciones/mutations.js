@@ -10,7 +10,7 @@ const CREAR_INSCRIPCION = gql`
         estudiante: $estudiante
     ) {
       estudiante{
-        nombre
+        _id
       }
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { useUser } from "context/user";
 import { useAuth } from "context/auth";
 import { Link } from 'react-router-dom';
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
 import PrivateComponent from "./PrivateComponent";
 
 const Navbars = () => {
@@ -17,7 +17,7 @@ const Navbars = () => {
         {authToken ? (
           <>
         <div className="cajasnav">
-            <Link to="/user/perfil" className="linkNav">
+            <Link to={`/user/usuarios/editar/${userData._id}`} className="linkNav">
             <i class='bx bx-user-circle'></i>
               <span className="nombres_links">Perfil</span>
             </Link>
@@ -58,7 +58,7 @@ const Navbars = () => {
             </Link>
           </div>
         </PrivateComponent>
-          <Nav  className="barraLado">
+          <Nav>
             <NavDropdown title={userData.nombre} id="navbarScrollingDropdown">
               <NavDropdown.Item href="user/proyectos">
                 <i className="bx bx-folder-open" />

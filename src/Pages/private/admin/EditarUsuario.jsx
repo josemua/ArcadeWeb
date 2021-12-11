@@ -7,7 +7,6 @@ import { EDITAR_USUARIO } from "../../../graphql/usuarios/mutations";
 import { Col, Form, Row } from "react-bootstrap";
 import Loading from "../../../Componentes/Loading";
 import useFormData from "../../../hooks/useFormData";
-import PrivateComponent from "Componentes/PrivateComponent";
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -61,7 +60,7 @@ const EditarUsuario = () => {
         onChange={updateFormData}
         ref={form}
       >
-      <Form.Label className="titulo">Editar Usuario</Form.Label>
+      <Form.Label className="titulo">Mi perfil</Form.Label>
 
       <div className="grid grid-cols-2 gap-5">
         <Form.Group as={Row} className="mb-3">
@@ -75,6 +74,20 @@ const EditarUsuario = () => {
               plaintext
               readOnly
               defaultValue={queryData.Usuario.rol}
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label column sm="3">
+            Estado
+          </Form.Label>
+          <Col Col sx="auto">
+          <Form.Control
+              type="text"
+              name="rol"
+              plaintext
+              readOnly
+              defaultValue={queryData.Usuario.estado}
             />
           </Col>
         </Form.Group>
@@ -128,20 +141,12 @@ const EditarUsuario = () => {
             />
           </Col>
         </Form.Group>
-                <Form.Group as={Row} className="mb-3">
-          <Form.Label column sm="3">
-            Estado
-          </Form.Label>
-          <Col Col sx="auto">
-            <Form.Select defaultValue={queryData.Usuario.estado} name="estado">
-              <option value="AUTORIZADO">Autorizado</option>
-              <PrivateComponent roleList={["ADMINISTRADOR"]}>
-              <option value="PENDIENTE">Pendiente</option>
-              <option value="NO_AUTORIZADO">No autorizado</option>
-              </PrivateComponent>
-            </Form.Select>
-          </Col>
-        </Form.Group>
+        <div className="ordenBotones">
+          <Link className="iconRegresar" to={`/user/usuarios/editar/password/${_id}`}>
+            <i className="bx bx-lock-open" />
+            Cambiar Password
+            </Link>
+          </div>  
         <div className="ordenBotones">
           <button onClick={submitForm} className="botonEnviar">
             <i className="bx bx-edit-alt" />

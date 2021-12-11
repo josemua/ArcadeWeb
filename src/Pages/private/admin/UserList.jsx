@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_USUARIOS } from "../../../graphql/usuarios/queries";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../../Componentes/Loading";
 import PrivateRoutes from "Componentes/PrivateRoutes";
@@ -54,7 +53,7 @@ const UserList = () => {
 
   return (
     <div className="contenedor">
-    <PrivateRoutes roleList={["ADMINISTRADOR"]}>
+    <PrivateRoutes roleList={["ADMINISTRADOR", "LIDER"]}>
       <h2 className="titulo">Datos Usuarios:</h2>
     <Table striped bordered hover responsive variant="dark">
         <thead>
@@ -66,7 +65,6 @@ const UserList = () => {
             <th key={identificación}>Identificación</th>,
             <th key={rol}>Rol</th>,
             <th key={estado}>Estado</th>,
-            <th key={editar}>Editar</th>,
             <th key={aprobar}>Aprobar</th>]
             ))}
             </tr>
@@ -83,11 +81,6 @@ const UserList = () => {
                       <td>{u.identificacion}</td>
                       <td>{u.rol}</td>
                       <td>{u.estado}</td>
-                      <td className="centrado">
-                        <Link to={`/user/usuarios/editar/${u._id}`}>
-                          <i className="bx bxs-edit iconoTabla"></i>
-                        </Link>
-                      </td>
                       <td className="centrado">
                         <i onClick={(e) => changeId(u._id)} className="bx bx-check iconoTabla" />
                       </td>
