@@ -16,9 +16,11 @@ import DetallesProyecto from "../Pages/private/DetallesProyecto";
 // import Perfil from "../Pages/private/Perfil";
 
 //admin
+import ProjectListAdmin from "Pages/private/admin/ProjectListAdmin";
+import EditarProyectoAdmin from "Pages/private/admin/EditarProyectoAdmin";
 
 //lider
-import CrearProyecto from "../Pages/private/CrearProyecto";
+import CrearProyecto from "../Pages/private/lider/CrearProyecto";
 
 //estudiante
 
@@ -32,11 +34,12 @@ const Rutas = () => {
       <Routes>
         <Route path="/user" element={<PrivateLayout />}>
           <Route path="usuarios/editar/:_id" element={<EditarUsuario />} />
-          <Route path="proyectos" element={<ProjectList />} />
           <Route path="usuarios" element={<UserList />} />
+          <Route path="proyectosAdmin" element={<ProjectListAdmin />} />
+          <Route path="proyectosAdmin/:id" element={<EditarProyectoAdmin />} />
           <Route path="proyectos" element={<ProjectList />} />
-          <Route path="proyectos/nuevo" element={<CrearProyecto />} />
-          <Route path="proyecto/:_id" element={<DetallesProyecto />} />
+          <Route path="proyecto/nuevo" element={<CrearProyecto />} />
+          <Route path="proyecto/:id" element={<DetallesProyecto/>} />
           <Route path="avances" element={<Cartas />} />
           <Route path="proyectos/avances/:id" element={<Formulario />} />
         </Route>

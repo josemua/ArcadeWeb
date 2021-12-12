@@ -15,6 +15,8 @@ const GET_PROYECTOS = gql`
         _id
         nombre
         apellido
+        correo
+        rol
       }
     }
   }
@@ -35,6 +37,7 @@ const GET_PROYECTO = gql`
       nombre
       apellido
       correo
+      rol
     }
     objetivos {
       _id

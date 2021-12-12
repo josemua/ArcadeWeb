@@ -18,7 +18,7 @@ const Navbars = () => {
           <>
         <div className="cajasnav">
             <Link to={`/user/usuarios/editar/${userData._id}`} className="linkNav">
-            <i class='bx bx-user-circle'></i>
+            <i className='bx bx-user-circle'></i>
               <span className="nombres_links">Perfil</span>
             </Link>
         </div>
@@ -34,6 +34,10 @@ const Navbars = () => {
               <i className="bx bxs-user-rectangle" />
                 <span className="nombres_links">Usuarios</span>
             </Link>
+            <Link to="/user/proyectosAdmin" className="linkNav">
+              <i className="bx bx-folder-open" />
+                <span className="nombres_links">Editar proyectos</span>
+            </Link>
           </div>
         </PrivateComponent>
         <PrivateComponent roleList={["LIDER"]}>
@@ -44,7 +48,7 @@ const Navbars = () => {
             </Link>
           </div>
           <div className="cajasnav">
-            <Link to="/user/proyectos/nuevo" className="linkNav">
+            <Link to="/user/proyecto/nuevo" className="linkNav">
           <i className="bx bx-folder-plus" />
               <span className="nombres_links">Liderar Proyecto</span>
             </Link>
@@ -82,6 +86,10 @@ const Navbars = () => {
                 <i className="bx bxs-user-rectangle" />
                 Usuarios
               </NavDropdown.Item>
+              <NavDropdown.Item href="/user/proyectosAdmin">
+                <i className="bx bxs-user-rectangle" />
+                Editar proyectos
+              </NavDropdown.Item>
               </PrivateComponent>
               <PrivateComponent roleList={["LIDER"]}>
               <NavDropdown.Divider />
@@ -89,7 +97,7 @@ const Navbars = () => {
                 <i className="bx bxs-user-rectangle" />
                 Usuarios
               </NavDropdown.Item>
-              <NavDropdown.Item href="/user/proyectos/nuevo">
+              <NavDropdown.Item href="/user/proyecto/nuevo">
                 <i className="bx bx-folder-plus" />
                 Liderar Proyecto
               </NavDropdown.Item>
@@ -121,7 +129,7 @@ const Navbars = () => {
           </div>
           <div className="cajasnav">
           <Link to="/registro" className="linkNav">
-            <i class='bx bx-file'></i>
+            <i className='bx bx-file'></i>
             <span className="nombres_links">Registrarse</span>
           </Link>
           </div>
