@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import useFormData from "../../hooks/useFormData";
+import useFormData from "../../../hooks/useFormData";
 import { useMutation } from "@apollo/client";
-import { CREAR_PROYECTO } from "../../graphql/proyectos/mutations";
+import { CREAR_PROYECTO } from "../../../graphql/proyectos/mutations";
 import { toast } from "react-toastify";
-import Loading from "../../Componentes/Loading";
+import Loading from "../../../Componentes/Loading";
 import { Col, Form, Row, Table } from "react-bootstrap";
-import { useUser } from "../../context/user";
+import { useUser } from "../../../context/user";
 import { Link } from "react-router-dom";
-import PrivateRoutes from "../../Componentes/PrivateRoutes";
+import PrivateRoutes from "../../../Componentes/PrivateRoutes";
 
 const initialValueObjective = {
   tipo: "",

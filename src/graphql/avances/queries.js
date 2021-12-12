@@ -13,5 +13,23 @@ const GET_AVANCES = gql`
   }
 `;
 
+const FILTRAR_AVANCES = gql`
+query FiltrarAvance($idProyecto: String!) {
+  filtrarAvance(idProyecto: $idProyecto) {
+    _id
+    fecha
+    descripcion
+    observaciones {
+      _id
+      descripcion
+      fecha
+    }
+    creadoPor {
+      _id
+      correo
+    }
+  }
+}
+`;
 
-export { GET_AVANCES, GET_USUARIO };
+export { GET_AVANCES, FILTRAR_AVANCES };
