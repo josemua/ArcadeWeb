@@ -46,6 +46,10 @@ const Navbars = () => {
             <i className="bx bx-edit" />
                 <span className="nombres_links">Estudiantes</span>
             </Link>
+            <Link to="/user/proyectosLiderados" className="linkNav">
+            <i className="bx bxs-folder-open" />
+                <span className="nombres_links">Proyectos liderados</span>
+            </Link>
           </div>
           <div className="cajasnav">
             <Link to="/user/proyecto/nuevo" className="linkNav">
@@ -96,6 +100,10 @@ const Navbars = () => {
               <NavDropdown.Item href="/user/usuarios">
                 <i className="bx bxs-user-rectangle" />
                 Usuarios
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/user/proyectosLiderados">
+                <i className="bx bxs-folder-open" />
+                Proyectos liderados
               </NavDropdown.Item>
               <NavDropdown.Item href="/user/proyecto/nuevo">
                 <i className="bx bx-folder-plus" />

@@ -70,21 +70,18 @@ const EditarProyectoAdmin = () => {
     aprobarProyecto({
       variables: { id },
     });
-    window.location.reload();
   };
 
   const onClickInactivar = (id) => {
     inactivarProyecto({
       variables: { id },
     });
-    window.location.reload();
   };
 
   const onClickTerminar = (id) => {
     terminarProyecto({
       variables: { id },
     });
-    window.location.reload();
   };
 
   const onClickReactivar = (id) => {
@@ -221,6 +218,66 @@ const EditarProyectoAdmin = () => {
             ) : (
               <tr>
                 <td>No encontramos el proyecto</td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+
+        <h2 className="titulo">Inscripciones:</h2>
+        <Table striped bordered hover responsive variant="dark">
+          <thead>
+            <tr className="centrado">
+              <th>Estado</th>
+              {Array.from({ length: 1 }).map(
+                (
+                  _,
+                  fechaIngreso,
+                  fechaEgreso,
+                  estudianteNombre,
+                  estudianteApellido,
+                  estudianteCorreo
+                ) => [
+                  <th key={fechaIngreso}>Fecha de ingreso</th>,
+                  <th key={fechaEgreso}>Fecha de egreso</th>,
+                  <th key={estudianteNombre}>Nombre</th>,
+                  <th key={estudianteApellido}>Apellido</th>,
+                  <th key={estudianteCorreo}>Correo del estudiante</th>
+                ]
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            {queryData && queryData.Proyecto.inscripciones ? (
+              <>
+              {queryData.Proyecto.inscripciones.map((i) =>{
+                return(
+                <tr>
+                  <td>{i.estado}</td>
+                  {i.fechaIngreso ? (
+                    <td>{i.fechaIngreso.split("T")[0]}</td>
+                  ) : (
+                    <td>{i.fechaIngreso}</td>
+                  )}
+                  {i.fechaEgreso ? (
+                    <td>{i.fechaEgreso.split("T")[0]}</td>
+                  ) : (
+                    <td>{i.fechaEgreso}</td>
+                  )}
+                  <td>{i.estudiante.nombre}</td>
+                  <td>{i.estudiante.apellido}</td>
+                  <td>{i.estudiante.correo}</td>
+                </tr>
+                );
+              })}
+              </>
+            ) : (
+              <tr>
+                <td></td>
+                <td></td>
+                <td>Proyecto sin</td>
+                <td>Inscripciones</td>
+                <td></td>
+                <td></td>
               </tr>
             )}
           </tbody>
