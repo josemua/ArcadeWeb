@@ -34,7 +34,7 @@ const ProjectListAdmin = () => {
   return (
     <div className="contenedor">
       <PrivateRoutes roleList={["ADMINISTRADOR"]}>
-        <h2 className="titulo">Datos Usuarios:</h2>
+        <h2 className="titulo">Datos Proyectos:</h2>
         <Table striped bordered hover responsive variant="dark">
           <thead>
             <tr className="centrado">

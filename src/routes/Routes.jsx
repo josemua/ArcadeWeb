@@ -16,11 +16,13 @@ import DetallesProyecto from "../Pages/private/DetallesProyecto";
 // import Perfil from "../Pages/private/Perfil";
 
 //admin
-import ProjectListAdmin from "Pages/private/admin/ProjectListAdmin";
-import EditarProyectoAdmin from "Pages/private/admin/EditarProyectoAdmin";
+import ProjectListAdmin from "../Pages/private/admin/ProjectListAdmin";
+import EditarProyectoAdmin from "../Pages/private/admin/EditarProyectoAdmin";
 
 //lider
 import CrearProyecto from "../Pages/private/lider/CrearProyecto";
+import ProyectosLiderados from "../Pages/private/lider/ProyectosLiderados";
+import EditarProyectoLider from "../Pages/private/lider/EditarProyectoLider";
 
 //estudiante
 
@@ -37,7 +39,9 @@ const Rutas = () => {
           <Route path="usuarios" element={<UserList />} />
           <Route path="proyectosAdmin" element={<ProjectListAdmin />} />
           <Route path="proyectosAdmin/:id" element={<EditarProyectoAdmin />} />
+          <Route path="proyectosLiderados" element={<ProyectosLiderados />} />
           <Route path="proyectos" element={<ProjectList />} />
+          <Route path="proyecto/editar/:id" element={<EditarProyectoLider />} />
           <Route path="proyecto/nuevo" element={<CrearProyecto />} />
           <Route path="proyecto/:id" element={<DetallesProyecto/>} />
           <Route path="avances" element={<Cartas />} />
