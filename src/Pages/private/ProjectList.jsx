@@ -29,7 +29,7 @@ const ProjectList = () => {
       {data &&
         data.Proyectos.map((u) => {
               return (
-                <ProjectCard titulo={u.nombre} inicio= {u.fechaInicio} lider={u.lider.nombre + " " + u.lider.apellido} usuarios={u.usuarios} estado={u.estado} fase={u.fase} id={u._id}></ProjectCard>
+                <ProjectCard titulo={u.nombre} inicio= {u.fechaInicio} lider={u.lider.nombre + " " + u.lider.apellido} usuarios={u.usuarios} estado={u.estado} fase={u.fase} id={u._id} presupuesto={u.presupuesto}></ProjectCard>
               );
             })}
       </div>

@@ -22,7 +22,7 @@ const ProjectCardLider = (props) => {
                 Fecha inicio: {props.inicio}
             </div>
             <div  className="usuariosProyecto">
-                Cantidad de Usuarios: {props.usuarios}
+            Cantidad de Usuarios: {props.usuarios}
             </div>
             <div className="botonesProyecto">
                 <Link to={`/user/proyecto/${props.id}`}>
