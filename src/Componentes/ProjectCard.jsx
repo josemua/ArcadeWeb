@@ -15,9 +15,9 @@ const ProjectCard = (props) => {
 
     const [openDialog, setOpenDialog] = useState(false);
     const CreacionInscripcion = async () =>{
-      /* crearInscripcion({
-        variables: proyecto, estudiante
-      }); */
+      crearInscripcion({
+        variables: {proyecto: proyecto, estudiante: estudiante}
+      }); 
       console.log(proyecto, estudiante)
     }
     
@@ -55,7 +55,7 @@ const ProjectCard = (props) => {
                 Fecha inicio: {props.inicio}
             </div>
             <div  className="usuariosProyecto">
-                Cantidad de Usuarios: {props.usuarios}
+                Presupuesto: {props.presupuesto}
             </div>
             <div className="botonesProyecto">
                 <Link to={`/user/proyecto/${props.id}`}>
@@ -77,7 +77,7 @@ const ProjectCard = (props) => {
                 ¿Está segur@ de solicitar inscribirse en este proyecto?
               </h1>
               <div className='opcionesIncripcion'>
-                <button onClick={() => CreacionInscripcion()} className='botonSi'> 
+                <button onClick={() => CreacionInscripcion()} onClick={() => setOpenDialog(false)} className='botonSi'> 
                   Sí
                 </button>
                 <button onClick={() => setOpenDialog(false)} className='botonNo'>
