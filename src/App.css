@@ -45,6 +45,7 @@
   transition: all 0.5s ease;
   overflow-y: auto;
   overflow-x: auto;
+  padding-top: 50px;
 }
 
 .iconNavbar{

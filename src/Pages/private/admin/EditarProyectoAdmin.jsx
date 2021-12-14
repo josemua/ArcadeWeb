@@ -309,37 +309,29 @@ const EditarProyectoAdmin = () => {
             ) : (
               <tr>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickTerminar(id)}
                       className="bx bxs-message-alt-x iconoTabla"
                     />
-                  </button>
                 </td>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickInactivar(id)}
                       className="bx bxs-message-alt-minus iconoTabla"
                     />
-                  </button>
                 </td>
 
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickReactivar(id)}
                       className="bx bxs-message-alt-add iconoTabla"
                     />
-                  </button>
                 </td>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickAprobar(id)}
                       className="bx bxs-message-alt-check iconoTabla"
-                    />
-                  </button>
+                    />   
                 </td>
               </tr>
             )}
