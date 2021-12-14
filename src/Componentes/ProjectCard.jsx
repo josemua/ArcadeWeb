@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { CREAR_INSCRIPCION } from "../graphql/inscripciones/mutations";
-import useFormData from "../hooks/useFormData";
 import { useParams, Link } from "react-router-dom";
 import { useUser } from "context/user";
 import { useQuery, useMutation } from "@apollo/client";
@@ -46,7 +45,7 @@ const ProjectCard = (props) => {
                 Lider: {props.lider}
             </div>
             <div  className="faseProyecto">
-                Fase: {props.usuarios}
+                Fase: {props.fase}
             </div>
             <div className="estadoProyecto">
                 Estado: {props.estado}
@@ -64,28 +63,7 @@ const ProjectCard = (props) => {
                   </button>
                 </Link>
                 <div className=''>
-            <PrivateComponent roleList={["ESTUDIANTE"]}>
-                    <button className="apuntador" onClick={() => setOpenDialog(true)}>
-                      Registrarse
-                    </button>
-              </PrivateComponent>
-              
         </div>
-          <Dialog open={openDialog} >
-            <div className='cuadroDialogo'>
-              <h1 className='textoIncripcion'>
-                ¿Está segur@ de solicitar inscribirse en este proyecto?
-              </h1>
-              <div className='opcionesIncripcion'>
-                <button onClick={() => CreacionInscripcion()} onClick={() => setOpenDialog(false)} className='botonSi'> 
-                  Sí
-                </button>
-                <button onClick={() => setOpenDialog(false)} className='botonNo'>
-                  No
-                </button>
-              </div>
-            </div>
-          </Dialog>
         </div>
     </div>
   );
