@@ -76,7 +76,7 @@ const Navbars = () => {
                 <i className="bx bx-edit" />
                 Inscripciones
               </NavDropdown.Item>
-              <NavDropdown.Item href="/user/avances">
+              <NavDropdown.Item href="/user/cartas">
                 <i className="bx bx-calendar-check" />
                 Avances
               </NavDropdown.Item>

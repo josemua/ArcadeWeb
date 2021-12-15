@@ -8,13 +8,13 @@ const cards = [
         id: 1,
         title: 'Crear Avances',
         image: image1,
-        url: 'http://localhost:3000/avaces'
+        url: 'http://localhost:3000/user/proyectos/avances'
     },
     {
         id: 2,
         title: 'Editar Avances',
         image: image2,
-        url: 'http://localhost:3000/avaces'
+        url: 'http://localhost:3000/user/proyectos/avances/lista'
     }
 ]
 

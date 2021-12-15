@@ -15,6 +15,7 @@ import { AuthContext } from "./context/auth";
 import jwt_decode from 'jwt-decode';
 
  const httpLink = createHttpLink({
+
    uri: "https://arcadeweb-backend.herokuapp.com/graphql",
    //uri: "http://localhost:4040/graphql",
  });

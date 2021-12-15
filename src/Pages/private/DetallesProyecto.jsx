@@ -1,10 +1,11 @@
+
 import { useQuery, useMutation } from "@apollo/client";
 import Loading from "Componentes/Loading";
 import { GET_PROYECTO } from "graphql/proyectos/queries";
 import { Dialog, Tooltip } from '@material-ui/core';
 import React, { useEffect, useState, useRef } from 'react';
 import { Table } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from "context/user";
 import { CREAR_INSCRIPCION } from "../../graphql/inscripciones/mutations";
@@ -107,14 +108,14 @@ const DetallesProyecto = () => {
                 lider,
                 rol
               ) => [
-                <th key={presupuesto}>Presupuesto</th>,
-                <th key={fechaInicio}>Fecha de Inicio</th>,
-                <th key={fechaFin}>Fecha de Fin</th>,
-                <th key={estado}>Estado</th>,
-                <th key={fase}>Fase</th>,
-                <th key={lider}>Lider</th>,
-                <th key={rol}>Rol del Lider</th>,
-              ]
+                  <th key={presupuesto}>Presupuesto</th>,
+                  <th key={fechaInicio}>Fecha de Inicio</th>,
+                  <th key={fechaFin}>Fecha de Fin</th>,
+                  <th key={estado}>Estado</th>,
+                  <th key={fase}>Fase</th>,
+                  <th key={lider}>Lider</th>,
+                  <th key={rol}>Rol del Lider</th>,
+                ]
             )}
           </tr>
         </thead>
@@ -186,7 +187,7 @@ const DetallesProyecto = () => {
         </tbody>
       </Table>
 
-{/*       <h2 className="titulo">Avances:</h2>
+      {/*       <h2 className="titulo">Avances:</h2>
       <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr className="centrado">
@@ -241,13 +242,20 @@ const DetallesProyecto = () => {
                       <p>{observacion.fecha}</p>
                       <p>{observacion.descripcion}</p>
                     </div>
+
                   </div>
                 ))}
               </div>
+
             </div>
           )
         )}
+        <Link to={`/user/proyectos/avances/lista`}>
+          <i className="bx bx-edit-alt" />
+        </Link>
+
       </div>
+
 
       <h2 className="titulo">Inscripciones:</h2>
       <Table striped bordered hover responsive variant="dark">

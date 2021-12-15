@@ -182,14 +182,14 @@ const EditarProyectoAdmin = () => {
                   lider,
                   rol
                 ) => [
-                  <th key={presupuesto}>Presupuesto</th>,
-                  <th key={fechaInicio}>Fecha de Inicio</th>,
-                  <th key={fechaFin}>Fecha de Fin</th>,
-                  <th key={estado}>Estado</th>,
-                  <th key={fase}>Fase</th>,
-                  <th key={lider}>Lider</th>,
-                  <th key={rol}>Rol del Lider</th>,
-                ]
+                    <th key={presupuesto}>Presupuesto</th>,
+                    <th key={fechaInicio}>Fecha de Inicio</th>,
+                    <th key={fechaFin}>Fecha de Fin</th>,
+                    <th key={estado}>Estado</th>,
+                    <th key={fase}>Fase</th>,
+                    <th key={lider}>Lider</th>,
+                    <th key={rol}>Rol del Lider</th>,
+                  ]
               )}
             </tr>
           </thead>
@@ -237,12 +237,12 @@ const EditarProyectoAdmin = () => {
                   estudianteApellido,
                   estudianteCorreo
                 ) => [
-                  <th key={fechaIngreso}>Fecha de ingreso</th>,
-                  <th key={fechaEgreso}>Fecha de egreso</th>,
-                  <th key={estudianteNombre}>Nombre</th>,
-                  <th key={estudianteApellido}>Apellido</th>,
-                  <th key={estudianteCorreo}>Correo del estudiante</th>
-                ]
+                    <th key={fechaIngreso}>Fecha de ingreso</th>,
+                    <th key={fechaEgreso}>Fecha de egreso</th>,
+                    <th key={estudianteNombre}>Nombre</th>,
+                    <th key={estudianteApellido}>Apellido</th>,
+                    <th key={estudianteCorreo}>Correo del estudiante</th>
+                  ]
               )}
             </tr>
           </thead>
