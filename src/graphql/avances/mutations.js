@@ -19,6 +19,27 @@ const CREAR_AVANCE = gql`
   }
 `;
 
+const EDITAR_AVANCE = gql`
+mutation EditarAvance($id: String!, $campos: camposAvance!) {
+  editarAvance(_id: $id, campos: $campos) {
+    _id
+    fecha
+    descripcion
+    observaciones {
+      _id
+      descripcion
+      fecha
+    }
+    proyecto {
+      _id
+    }
+    creadoPor {
+      _id
+    }
+  }
+}
+`;
+
 const CREAR_OBSERVACION = gql`
 mutation CrearObservacion($idAvance: String!, $campos: camposObservacion!) {
   crearObservacion(idAvance: $idAvance, campos: $campos) {
@@ -40,4 +61,4 @@ mutation CrearObservacion($idAvance: String!, $campos: camposObservacion!) {
 }
 `;
 
-export { CREAR_AVANCE, CREAR_OBSERVACION };
+export { CREAR_AVANCE, CREAR_OBSERVACION, EDITAR_AVANCE };
