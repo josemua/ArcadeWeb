@@ -96,6 +96,7 @@ const EditarProyectoLider = () => {
       variables: { idProyecto: id, idObjetivo: _id },
     });
   };
+  
   const prepareEdit = (_index, _tipo, _descripcion) => {
     setIndex(_index);
     setTipo(_tipo);

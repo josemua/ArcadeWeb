@@ -50,8 +50,6 @@ const Navbars = () => {
             <i className="bx bxs-folder-open" />
                 <span className="nombres_links">Proyectos liderados</span>
             </Link>
-          </div>
-          <div className="cajasnav">
             <Link to="/user/proyecto/nuevo" className="linkNav">
           <i className="bx bx-folder-plus" />
               <span className="nombres_links">Liderar Proyecto</span>
@@ -64,6 +62,10 @@ const Navbars = () => {
               <i className="bx bx-calendar-check" />
                 <span className="nombres_links">Avances</span>
             </Link>
+            <Link to="/user/inscripciones" className="linkNav">
+              <i className="bx bx-calendar-edit" />
+                <span className="nombres_links">Inscripciones</span>
+            </Link>
           </div>
         </PrivateComponent>
           <Nav>
@@ -71,14 +73,6 @@ const Navbars = () => {
               <NavDropdown.Item href="user/proyectos">
                 <i className="bx bx-folder-open" />
                 Proyectos
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/user/inscripciones">
-                <i className="bx bx-edit" />
-                Inscripciones
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/user/cartas">
-                <i className="bx bx-calendar-check" />
-                Avances
               </NavDropdown.Item>
               <NavDropdown.Item href={`/user/usuarios/editar/${userData._id}`}>
                 <i className="bx bxs-user-rectangle" />
@@ -108,6 +102,17 @@ const Navbars = () => {
               <NavDropdown.Item href="/user/proyecto/nuevo">
                 <i className="bx bx-folder-plus" />
                 Liderar Proyecto
+              </NavDropdown.Item>
+              </PrivateComponent>
+              <PrivateComponent roleList={["ESTUDIANTE"]}>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/user/avances">
+                <i className="bx bx-calendar-check" />
+                Avances
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/user/inscripciones">
+                <i className="bx bxs-calendar-edit" />
+                Inscripciones
               </NavDropdown.Item>
               </PrivateComponent>
             </NavDropdown>

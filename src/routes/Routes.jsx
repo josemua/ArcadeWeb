@@ -27,6 +27,7 @@ import EditarProyectoLider from "../Pages/private/lider/EditarProyectoLider";
 import AdministrarInscripciones from "Pages/private/lider/AdministrarInscripciones";
 
 //estudiante
+import ListaInscripciones from "Pages/private/estudiante/ListaInscripciones";
 
 //layouts
 import PrivateLayout from "../layouts/PrivateLayout";
@@ -48,9 +49,10 @@ const Rutas = () => {
           <Route path="proyecto/inscripciones/:id" element={<AdministrarInscripciones />} />
           <Route path="proyecto/nuevo" element={<CrearProyecto />} />
           <Route path="proyecto/:id" element={<DetallesProyecto/>} />
-          <Route path="cartas" element={<Cartas />} />
-          <Route path="proyectos/avances" element={<Avances />} />
-          <Route path="proyectos/avances/lista" element={<AvanceList />} />
+          <Route path="avances" element={<Cartas />} />
+          <Route path="proyecto/avances/:id" element={<Avances />} />
+          <Route path="avances/lista" element={<AvanceList />} />
+          <Route path="inscripciones" element={<ListaInscripciones />} />
         </Route>
         <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Home />} />

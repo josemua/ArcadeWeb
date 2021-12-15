@@ -12,9 +12,6 @@ const ProjectCardLider = (props) => {
       <div className="inicioProyecto">Fecha inicio: {props.inicio}</div>
       <div className="usuariosProyecto">Presupuesto: {props.presupuesto}</div>
       <div className="botonesProyecto">
-        <Link to={`/user/proyecto/${props.id}`}>
-          <button>Detalles</button>
-        </Link>
         <PrivateComponent roleList={["LIDER"]}>
                   <Link to={`/user/proyecto/editar/${props.id}`}>
                   <button>
@@ -24,6 +21,11 @@ const ProjectCardLider = (props) => {
                 <Link to={`/user/proyecto/inscripciones/${props.id}`}>
                   <button>
                       Inscripciones
+                  </button>
+                </Link>
+                <Link to={`/user/proyecto/avances/${props.id}`}>
+                  <button>
+                      Avances
                   </button>
                 </Link>
               </PrivateComponent>
