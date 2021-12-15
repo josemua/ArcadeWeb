@@ -55,7 +55,7 @@ const UserList = () => {
     <div className="contenedor">
     <PrivateRoutes roleList={["ADMINISTRADOR", "LIDER"]}>
       <h2 className="titulo">Datos Usuarios:</h2>
-    <Table striped bordered hover responsive variant="dark">
+    <Table striped bordered hover variant="dark" className="tablaGrande">
         <thead>
           <tr className="centrado">
             <th>Correo</th>

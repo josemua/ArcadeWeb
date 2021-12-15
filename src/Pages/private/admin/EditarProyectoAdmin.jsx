@@ -249,26 +249,26 @@ const EditarProyectoAdmin = () => {
           <tbody>
             {queryData && queryData.Proyecto.inscripciones ? (
               <>
-                {queryData.Proyecto.inscripciones.map((i) => {
-                  return (
-                    <tr>
-                      <td>{i.estado}</td>
-                      {i.fechaIngreso ? (
-                        <td>{i.fechaIngreso.split("T")[0]}</td>
-                      ) : (
-                        <td>{i.fechaIngreso}</td>
-                      )}
-                      {i.fechaEgreso ? (
-                        <td>{i.fechaEgreso.split("T")[0]}</td>
-                      ) : (
-                        <td>{i.fechaEgreso}</td>
-                      )}
-                      <td>{i.estudiante.nombre}</td>
-                      <td>{i.estudiante.apellido}</td>
-                      <td>{i.estudiante.correo}</td>
-                    </tr>
-                  );
-                })}
+              {queryData.Proyecto.inscripciones.map((i) =>{
+                return(
+                <tr key={i._id}>
+                  <td>{i.estado}</td>
+                  {i.fechaIngreso ? (
+                    <td>{i.fechaIngreso.split("T")[0]}</td>
+                  ) : (
+                    <td>{i.fechaIngreso}</td>
+                  )}
+                  {i.fechaEgreso ? (
+                    <td>{i.fechaEgreso.split("T")[0]}</td>
+                  ) : (
+                    <td>{i.fechaEgreso}</td>
+                  )}
+                  <td>{i.estudiante.nombre}</td>
+                  <td>{i.estudiante.apellido}</td>
+                  <td>{i.estudiante.correo}</td>
+                </tr>
+                );
+              })}
               </>
             ) : (
               <tr>
@@ -309,37 +309,29 @@ const EditarProyectoAdmin = () => {
             ) : (
               <tr>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickTerminar(id)}
                       className="bx bxs-message-alt-x iconoTabla"
                     />
-                  </button>
                 </td>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickInactivar(id)}
                       className="bx bxs-message-alt-minus iconoTabla"
                     />
-                  </button>
                 </td>
 
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickReactivar(id)}
                       className="bx bxs-message-alt-add iconoTabla"
                     />
-                  </button>
                 </td>
                 <td className="centrado">
-                  <button>
                     <i
                       onClick={(e) => onClickAprobar(id)}
                       className="bx bxs-message-alt-check iconoTabla"
-                    />
-                  </button>
+                    />   
                 </td>
               </tr>
             )}

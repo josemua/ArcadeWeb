@@ -1,15 +1,22 @@
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import Loading from "Componentes/Loading";
 import { GET_PROYECTO } from "graphql/proyectos/queries";
-import React, { useEffect } from "react";
+import { Dialog, Tooltip } from '@material-ui/core';
+import React, { useEffect, useState, useRef } from 'react';
 import { Table } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { useUser } from "context/user";
+import { CREAR_INSCRIPCION } from "../../graphql/inscripciones/mutations";
+import PrivateComponent from "../../Componentes/PrivateComponent";
 
 const DetallesProyecto = () => {
+  
   const { id } = useParams();
+  const { userData } = useUser();
+  const estudiante = userData._id;
+  const [openDialog, setOpenDialog] = useState(false);
 
   const {
     data: queryData,
@@ -18,7 +25,35 @@ const DetallesProyecto = () => {
   } = useQuery(GET_PROYECTO, {
     variables: { id },
   });
+    
+    const [
+      crearInscripcion,{ 
+        data: mutationData, 
+        loading: mutationLoading, 
+        error: mutationError },
+    ] = useMutation(CREAR_INSCRIPCION);
 
+    useEffect(() => {
+      if (mutationData) {
+        toast.success("Inscripcion creada correctamente");
+      }
+    }, [mutationData]);
+
+    useEffect(() => {
+      if (mutationError) {
+        toast.error("Error creando la inscripcion");
+      }
+      }, [mutationError]);
+
+      const CreacionInscripcion = async () =>{
+        crearInscripcion({
+          variables: { 
+            proyecto: id,
+            estudiante: estudiante}
+        }); 
+        console.log({proyecto: id,
+          estudiante: estudiante});
+      }
 
   useEffect(() => {
     if (queryData) {
@@ -243,6 +278,11 @@ const DetallesProyecto = () => {
           )}
         </tbody>
       </Table>
+      <PrivateComponent className="botonesProyecto" roleList={["ESTUDIANTE"]}>
+          <button className="apuntador" onClick={() => CreacionInscripcion()}>
+            Inscribirse al proyecto
+          </button>
+        </PrivateComponent>
     </div>
   );
 };

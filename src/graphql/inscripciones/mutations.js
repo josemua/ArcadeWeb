@@ -17,11 +17,23 @@ const CREAR_INSCRIPCION = gql`
 `;
 
 const APROBAR_INSCRIPCION = gql`
-mutation AprobarInscripcion($id: String!) {
-  AprobarInscripcion(_id: $id) {
-    inscripcion
+mutation AprobarInscripcion($aprobarInscripcionId: String!) {
+  aprobarInscripcion(id: $aprobarInscripcionId) {
+    _id
+    fechaIngreso
+    estado
   }
 }
 `;
 
-export { CREAR_INSCRIPCION, APROBAR_INSCRIPCION };
+const RECHAZAR_INSCRIPCION = gql`
+mutation RechazarInscripcion($rechazarInscripcionId: String!) {
+  rechazarInscripcion(id: $rechazarInscripcionId) {
+    _id
+    estado
+    fechaEgreso
+  }
+}
+`;
+
+export { CREAR_INSCRIPCION, APROBAR_INSCRIPCION, RECHAZAR_INSCRIPCION };
