@@ -1,0 +1,82 @@
+.contenedor{
+    padding: 25px;
+    margin: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formulario{
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 30px;
+    background-color: #16608846;
+    box-shadow: 10px 10px 8px black, 0 10px 20px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+}
+
+.iconRegresar{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 6px;
+    transition: all 0.5s ease;
+}
+
+.iconRegresar:hover{
+    color:white;
+    background-color: #14213dba;
+    transition: all 0.5s ease;
+}
+  
+.contentForm{
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+  
+.botonEnviar{
+    color: black;
+    background-color: transparent;
+    border-style: none;
+    border-radius: 20px;
+    padding: 6px;
+    transition: all 0.5s ease;
+}
+  
+.botonEnviar:hover{
+    color:white;
+    background-color: #14213dba;
+    transition: all 0.5s ease;
+}
+  
+.ordenBotones{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+
+
+.observacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+    background-color: #16608846;
+}

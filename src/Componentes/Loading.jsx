@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Spinner } from "react-bootstrap";
 
 const Loading = () => {
-    return (
-        <div>
-            Loading...
-        </div>
-    )
-}
+  return (
+    <div className="centrado">
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Cargando...</span>
+      </Spinner>
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;

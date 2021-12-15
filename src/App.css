@@ -1,22 +1,64 @@
-body{
-  background-image: url(./componentes/img/Back1.jpg);
-  background-size: cover;
-  color: rgb(8, 8, 7);
-  font-family: 'Gemunu Libre', sans-serif;
-  padding: 0  2.5em;
-
-}
-
-.App {
+.titulo{
+  display: flex;
   text-align: center;
+  font-size: xx-large;
 }
 
 .Logo {
-  height: 48px;
-  width: 48px;
+  height: 32px;
+  width: 32px;
 }
 
-.titulo{
+.imgLink{
+  cursor: pointer,
+}
+
+.link{
+  text-decoration: none;
+  color: blue;
+  text-align: left;
+  font-size: larger;
+}
+
+.centrado{
   text-align: center;
-  font-size: 2.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondo{
+  width: 100vw;
+  height: 100vh;
+  background-color: #C0D6DF;
+  display: block;
+}
+
+.contentPage{
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color:transparent;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding-top: 50px;
+}
+
+.iconNavbar{
+  size: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconNavbar:hover{
+  color: red;
+}
+
+.tituloB{
+  color: white;
+  display: block;
 }
