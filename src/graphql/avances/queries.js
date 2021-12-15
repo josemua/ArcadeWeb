@@ -14,19 +14,21 @@ const GET_AVANCES = gql`
 `;
 
 const FILTRAR_AVANCES = gql`
-query FiltrarAvance($idProyecto: String!) {
-  filtrarAvance(idProyecto: $idProyecto) {
+query FiltrarAvance($idEstudiante: String!) {
+  filtrarAvance(idEstudiante: $idEstudiante) {
     _id
     fecha
     descripcion
+    proyecto {
+      _id
+    }
+    creadoPor {
+      _id
+    }
     observaciones {
       _id
       descripcion
       fecha
-    }
-    creadoPor {
-      _id
-      correo
     }
   }
 }

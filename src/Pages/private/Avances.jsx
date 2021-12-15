@@ -185,7 +185,7 @@ const Avances = () => {
                             Regresar
                           </Button>
                           <Button variant="primary" onClick={enviarObservacionEditada}>
-                            Editar
+                            Agregar Observacion
                           </Button>
                         </Modal.Footer>
                       </Modal>
