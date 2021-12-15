@@ -288,7 +288,6 @@ const EditarProyectoLider = () => {
             {Array.from({ length: 1 }).map(
               (_, descripcion, eliminar, editar) => [
                 <th key={descripcion}>Descripcion</th>,
-                <th key={index}>Index</th>,
                 <th key={eliminar}>Eliminar</th>,
                 <th key={editar}>Editar</th>,
               ]
@@ -303,7 +302,6 @@ const EditarProyectoLider = () => {
                   <tr key={o._id}>
                     <td>{o.tipo}</td>
                     <td>{o.descripcion}</td>
-                    <td>{index}</td>
                     <td className="centrado">
                     {queryData.Proyecto.estado === "ACTIVO" && (
                       <button>
