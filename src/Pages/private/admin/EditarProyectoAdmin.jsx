@@ -182,14 +182,14 @@ const EditarProyectoAdmin = () => {
                   lider,
                   rol
                 ) => [
-                  <th key={presupuesto}>Presupuesto</th>,
-                  <th key={fechaInicio}>Fecha de Inicio</th>,
-                  <th key={fechaFin}>Fecha de Fin</th>,
-                  <th key={estado}>Estado</th>,
-                  <th key={fase}>Fase</th>,
-                  <th key={lider}>Lider</th>,
-                  <th key={rol}>Rol del Lider</th>,
-                ]
+                    <th key={presupuesto}>Presupuesto</th>,
+                    <th key={fechaInicio}>Fecha de Inicio</th>,
+                    <th key={fechaFin}>Fecha de Fin</th>,
+                    <th key={estado}>Estado</th>,
+                    <th key={fase}>Fase</th>,
+                    <th key={lider}>Lider</th>,
+                    <th key={rol}>Rol del Lider</th>,
+                  ]
               )}
             </tr>
           </thead>
@@ -237,38 +237,38 @@ const EditarProyectoAdmin = () => {
                   estudianteApellido,
                   estudianteCorreo
                 ) => [
-                  <th key={fechaIngreso}>Fecha de ingreso</th>,
-                  <th key={fechaEgreso}>Fecha de egreso</th>,
-                  <th key={estudianteNombre}>Nombre</th>,
-                  <th key={estudianteApellido}>Apellido</th>,
-                  <th key={estudianteCorreo}>Correo del estudiante</th>
-                ]
+                    <th key={fechaIngreso}>Fecha de ingreso</th>,
+                    <th key={fechaEgreso}>Fecha de egreso</th>,
+                    <th key={estudianteNombre}>Nombre</th>,
+                    <th key={estudianteApellido}>Apellido</th>,
+                    <th key={estudianteCorreo}>Correo del estudiante</th>
+                  ]
               )}
             </tr>
           </thead>
           <tbody>
             {queryData && queryData.Proyecto.inscripciones ? (
               <>
-              {queryData.Proyecto.inscripciones.map((i) =>{
-                return(
-                <tr>
-                  <td>{i.estado}</td>
-                  {i.fechaIngreso ? (
-                    <td>{i.fechaIngreso.split("T")[0]}</td>
-                  ) : (
-                    <td>{i.fechaIngreso}</td>
-                  )}
-                  {i.fechaEgreso ? (
-                    <td>{i.fechaEgreso.split("T")[0]}</td>
-                  ) : (
-                    <td>{i.fechaEgreso}</td>
-                  )}
-                  <td>{i.estudiante.nombre}</td>
-                  <td>{i.estudiante.apellido}</td>
-                  <td>{i.estudiante.correo}</td>
-                </tr>
-                );
-              })}
+                {queryData.Proyecto.inscripciones.map((i) => {
+                  return (
+                    <tr>
+                      <td>{i.estado}</td>
+                      {i.fechaIngreso ? (
+                        <td>{i.fechaIngreso.split("T")[0]}</td>
+                      ) : (
+                        <td>{i.fechaIngreso}</td>
+                      )}
+                      {i.fechaEgreso ? (
+                        <td>{i.fechaEgreso.split("T")[0]}</td>
+                      ) : (
+                        <td>{i.fechaEgreso}</td>
+                      )}
+                      <td>{i.estudiante.nombre}</td>
+                      <td>{i.estudiante.apellido}</td>
+                      <td>{i.estudiante.correo}</td>
+                    </tr>
+                  );
+                })}
               </>
             ) : (
               <tr>

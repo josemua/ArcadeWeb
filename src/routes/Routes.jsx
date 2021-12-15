@@ -9,10 +9,11 @@ import Login from "../Pages/public/Login";
 //private
 import UserList from "../Pages/private/admin/UserList";
 import ProjectList from "../Pages/private/ProjectList";
-import Formulario from "../Pages/private/Avances";
+import Avances from "../Pages/private/Avances";
 import Cartas from "../Componentes/cartas";
 import EditarUsuario from "../Pages/private/EditarUsuario";
 import DetallesProyecto from "../Pages/private/DetallesProyecto";
+import AvanceList from "Pages/private/AvanceList";
 // import Perfil from "../Pages/private/Perfil";
 
 //admin
@@ -44,8 +45,9 @@ const Rutas = () => {
           <Route path="proyecto/editar/:id" element={<EditarProyectoLider />} />
           <Route path="proyecto/nuevo" element={<CrearProyecto />} />
           <Route path="proyecto/:id" element={<DetallesProyecto/>} />
-          <Route path="avances" element={<Cartas />} />
-          <Route path="proyectos/avances/:id" element={<Formulario />} />
+          <Route path="cartas" element={<Cartas />} />
+          <Route path="proyectos/avances" element={<Avances />} />
+          <Route path="proyectos/avances/lista" element={<AvanceList />} />
         </Route>
         <Route path="/" element={<PublicLayout />}>
           <Route path="" element={<Home />} />
