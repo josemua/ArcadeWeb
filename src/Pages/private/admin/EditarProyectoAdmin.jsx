@@ -251,7 +251,7 @@ const EditarProyectoAdmin = () => {
               <>
               {queryData.Proyecto.inscripciones.map((i) =>{
                 return(
-                <tr>
+                <tr key={i._id}>
                   <td>{i.estado}</td>
                   {i.fechaIngreso ? (
                     <td>{i.fechaIngreso.split("T")[0]}</td>

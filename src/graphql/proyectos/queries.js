@@ -22,6 +22,27 @@ const GET_PROYECTOS = gql`
   }
 `;
 
+const GET_PROYECTOS_ACTIVOS = gql`
+  query ProyectosActivos {
+    ProyectosActivos {
+      _id
+      nombre
+      presupuesto
+      fechaInicio
+      fechaFin
+      estado
+      fase
+      lider{
+        _id
+        nombre
+        apellido
+        correo
+        rol
+      }
+    }
+  }
+`;
+
 const GET_PROYECTO = gql`
   query Proyecto($id: String!) {
   Proyecto(_id: $id) {
@@ -125,4 +146,4 @@ query FiltrarProyecto($lider: String!) {
 }
 `;
 
-export { GET_PROYECTOS, GET_PROYECTO, GET_PROYECTOS_LIDERADOS };
+export { GET_PROYECTOS, GET_PROYECTO, GET_PROYECTOS_LIDERADOS, GET_PROYECTOS_ACTIVOS };
