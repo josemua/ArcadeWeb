@@ -44,7 +44,7 @@ const ProjectLid = () => {
       {queryData &&
         queryData.filtrarProyecto.map((u) => {
               return (
-                <ProjectCard titulo={u.nombre} inicio= {u.fechaInicio} lider={u.lider.correo} usuarios={u.usuarios} estado={u.estado} fase={u.fase} id={u._id}></ProjectCard>
+                <ProjectCard titulo={u.nombre} inicio= {u.fechaInicio} lider={u.lider.correo} usuarios={u.usuarios} estado={u.estado} fase={u.fase} presupuesto={u.presupuesto} id={u._id}></ProjectCard>
               );
             })}
       </div>

@@ -7,7 +7,6 @@ const AvanceList = () => {
 
     return (
         <div className="contenedor">
-            <PrivateRoutes roleList={["ADMINISTRADOR", "LIDER"]}>
                 <h2 className="titulo">Avances de Proyecto:</h2>
 
                 <Table striped bordered hover responsive variant="dark">
@@ -27,7 +26,6 @@ const AvanceList = () => {
                     </tbody>
                 </Table>
 
-            </PrivateRoutes>
         </div>
 
     )
