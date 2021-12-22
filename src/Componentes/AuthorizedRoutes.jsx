@@ -8,8 +8,8 @@ const AuthorizedRoutes = ({ stateList, children }) => {
     return children;
   }
 
-  return (console.log(userData), 
-  <div className='titulo rutaRestringida'> No estas autorizad@ para acceder a esta página. </div>
+  return (
+  <div data-testid="authRoutes" className='titulo rutaRestringida'> No estas autorizad@ para acceder a esta página. </div>
   );
   
 };
