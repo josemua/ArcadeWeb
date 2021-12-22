@@ -8,7 +8,7 @@ const PrivateRoutes = ({ roleList, children }) => {
     return children;
   }
 
-  return (console.log(userData), <div className='titulo'>No estás autorizado para ver este sitio.</div>);
+  return (<div data-testid="privateRoutes" className='titulo'>No estás autorizado para ver este sitio.</div>);
   
 };
 
