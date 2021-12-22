@@ -8,7 +8,7 @@ const PrivateComponent = ({ roleList, children }) => {
     return children;
   }
 
-  return <></>;
+  return <div data-testid="privateComponent"></div>;
 };
 
 export default PrivateComponent;
