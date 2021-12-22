@@ -23,7 +23,7 @@ const Navbars = () => {
             </Link>
         </div>
         <div className="cajasnav">
-          <Link to="/user/proyectos" className="linkNav">
+          <Link to={"/user/proyectos"} className="linkNav">
           <i className="bx bx-folder-open"></i>
               <span className="nombres_links">Proyectos</span>
           </Link>
