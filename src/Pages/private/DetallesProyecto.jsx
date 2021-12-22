@@ -1,10 +1,9 @@
 import { useQuery, useMutation } from "@apollo/client";
 import Loading from "Componentes/Loading";
 import { GET_PROYECTO } from "graphql/proyectos/queries";
-import { Dialog, Tooltip } from "@material-ui/core";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from "context/user";
 import { CREAR_INSCRIPCION } from "../../graphql/inscripciones/mutations";
@@ -14,7 +13,6 @@ const DetallesProyecto = () => {
   const { id } = useParams();
   const { userData } = useUser();
   const estudiante = userData._id;
-  const [openDialog, setOpenDialog] = useState(false);
 
   const {
     data: queryData,
@@ -66,7 +64,7 @@ const DetallesProyecto = () => {
     }
   }, [queryError]);
 
-  if (queryLoading) return <Loading />;
+  if (queryLoading || mutationLoading) return <Loading />;
 
   return (
     <div className="contenedor">
